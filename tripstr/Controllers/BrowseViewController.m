@@ -29,6 +29,15 @@
     return self;
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        NSLog(@"BrowseViewController initiated");
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

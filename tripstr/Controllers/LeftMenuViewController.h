@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JASidePanelController.h>
 
 @interface LeftMenuViewController : UIViewController
+
+@property (nonatomic,strong) JASidePanelController* viewController;
 
 @end

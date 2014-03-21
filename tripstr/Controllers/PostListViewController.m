@@ -11,6 +11,9 @@
 #import "PostListCell.h"
 #import "PostModel.h"
 
+#import "AddPostViewController.h"
+
+
 @interface PostListViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) PostListTableView* tableView;
@@ -39,6 +42,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)addPostTapped:(id)sender {
+//    AddPostViewController* apvc = [[AddPostViewController alloc] init];
+//    [self.navigationController pushViewController:apvc animated:YES];
+    //[self presentViewController:apvc animated:YES completion:nil];
 }
 
 #pragma mark - getter

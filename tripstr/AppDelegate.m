@@ -15,15 +15,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    self.viewController = [[JASidePanelController alloc] init];
-    self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController:[[LeftMenuViewController alloc] init]];
-    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[BrowseViewController alloc] init]];
-    self.viewController.leftFixedWidth = 270;
-    
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    
+//    self.viewController = [[JASidePanelController alloc] init];
+//    self.viewController.shouldDelegateAutorotateToVisiblePanel = NO;
+//    
+//    self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController: [[LeftMenuViewController alloc] init]];
+//    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[BrowseViewController alloc] init]];
+//    self.viewController.leftFixedWidth = 270;
+//    
+//    self.window.rootViewController = self.viewController;
+//    [self.window makeKeyAndVisible];
 
     return YES;
 }

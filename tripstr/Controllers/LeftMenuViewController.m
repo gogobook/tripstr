@@ -10,10 +10,22 @@
 #import "LeftMenuTableView.h"
 #import "LeftMenuCell.h"
 
+#import "BrowseViewController.h"
+#import "TravelListViewController.h"
+#import "PostListViewController.h"
+
+typedef enum LeftMenuItem {
+    LeftMenuItemBrowse,LeftMenuItemTravels,LeftMenuItemPosts
+}LeftMenuItem;
+
 @interface LeftMenuViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) LeftMenuTableView* tableView;
 @property (nonatomic,strong) NSArray* menuList;
+//
+//@property (nonatomic,strong) BrowseViewController* browseViewController;
+//@property (nonatomic,strong) TravelListViewController* travelListViewcontroller;
+//@property (nonatomic,strong) PostListViewController* postListViewController;
 
 @end
 
@@ -78,23 +90,31 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* segueID;
+//    NSString* segueID;
     switch (indexPath.row) {
-        case 0:
-            segueID = @"MenuToBrowseSegue";
+        case LeftMenuItemBrowse:
+        {
+            NSLog(@"Browse tapped");
+            self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[BrowseViewController alloc] init]];
             break;
-        case 1:
-            segueID = @"MenuToTravelListSegue";
+        }
+        case LeftMenuItemTravels:
+        {
+            NSLog(@"Travel tapped");
+            self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[TravelListViewController alloc] init]];
             break;
-        case 2:
-            segueID = @"MenuToPostListSegue";
+        }
+        case LeftMenuItemPosts:
+        {
+            NSLog(@"Posts tapped");
+            self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[PostListViewController alloc] init]];
             break;
+        }
         default:
             NSLog(@"indexPath.row is not right");
             break;
     }
     
-    [self performSegueWithIdentifier:segueID sender:nil];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

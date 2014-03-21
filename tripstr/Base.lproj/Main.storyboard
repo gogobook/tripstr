@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wpV-Fe-sJo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Kb5-cX-OFY">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -80,7 +80,7 @@
                     <navigationItem key="navigationItem" title="Posts" id="cVl-dM-PK2">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="aIX-FW-H4V">
                             <connections>
-                                <segue destination="dQD-MR-0Ow" kind="modal" id="Jx0-iZ-UH7"/>
+                                <segue destination="dQD-MR-0Ow" kind="modal" id="5yl-Ek-VmS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -103,6 +103,45 @@
                     <view key="view" contentMode="scaleToFill" id="51N-KF-ARY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXa-5y-oNn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Post Title..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jqn-yM-R8I">
+                                        <rect key="frame" x="105" y="87" width="195" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select City..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QBV-cW-Ezc">
+                                        <rect key="frame" x="105" y="133" width="195" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-c1-D21">
+                                        <rect key="frame" x="20" y="176" width="280" height="96"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aET-2X-CLw">
+                                        <rect key="frame" x="20" y="87" width="81" height="76"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Add Picture">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addPictureButtonTapped:" destination="SsN-Bl-nQD" eventType="touchUpInside" id="QIy-AK-uRW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
@@ -110,6 +149,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="aru-4d-HzM">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="SsN-Bl-nQD" id="WcV-Lr-0w0"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Finish" id="LlM-aZ-wZ0">
+                            <connections>
+                                <action selector="finishButtonTapped:" destination="SsN-Bl-nQD" id="NKZ-hQ-uou"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -133,12 +177,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="M8f-uJ-euU"/>
-                    <connections>
-                        <segue destination="xL5-ba-f1v" kind="push" identifier="MenuToBrowseSegue" id="EGK-9l-0Ra"/>
-                        <segue destination="0lC-nX-ohr" kind="push" identifier="MenuToTravelListSegue" id="JN9-bO-39C"/>
-                        <segue destination="Pmc-Lb-Kqu" kind="push" identifier="MenuToMyProfileSegue" id="Db5-7w-Pig"/>
-                        <segue destination="f9G-k8-13u" kind="push" identifier="MenuToPostListSegue" id="May-Zy-8Ep"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmq-Bm-FV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -348,24 +386,6 @@
             </objects>
             <point key="canvasLocation" x="1563" y="824"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gLI-ZL-BMq">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wpV-Fe-sJo" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R7z-Lm-t9e">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="sTe-zo-QRx" kind="relationship" relationship="rootViewController" id="Fh0-H2-2Tb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tHF-rq-m8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-889" y="1190"/>
-        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -373,9 +393,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="May-Zy-8Ep"/>
-        <segue reference="EGK-9l-0Ra"/>
-        <segue reference="JN9-bO-39C"/>
         <segue reference="a4T-cx-RtU"/>
     </inferredMetricsTieBreakers>
 </document>

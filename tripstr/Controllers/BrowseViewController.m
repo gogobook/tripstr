@@ -12,11 +12,14 @@
 #import "PostModel.h"
 
 #import "PostViewController.h"
+#import <MBProgressHUD.h>
 
-@interface BrowseViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface BrowseViewController () <UITableViewDataSource, UITableViewDelegate, PostModelDelegate>
 
 @property (nonatomic,strong) PostListTableView* tableView;
 @property (nonatomic,strong) NSArray* postList;
+@property (nonatomic,strong) PostModel* postModel;
+@property (nonatomic,strong) MBProgressHUD* hud;
 
 @end
 
@@ -35,8 +38,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
     [self setupLayout];
     [self setupConstraints];
+    
+    [self.postModel fetchPostListAll];
 
 }
 
@@ -57,6 +63,13 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[tableView]|" options:0 metrics:nil views:dict]];
 }
 
+#pragma mark - setter
+
+-(void)setPostList:(NSArray *)postList
+{
+    _postList = postList;
+    [self.tableView reloadData];
+}
 
 #pragma mark - getter
 - (PostListTableView *)tableView
@@ -73,12 +86,20 @@
     return _tableView;
 }
 
+- (PostModel *)postModel
+{
+    if (!_postModel) {
+        _postModel = [[PostModel alloc] init];
+        _postModel.delegate = self;
+    }
+    return _postModel;
+}
 
 #pragma mark - tableView DataSource
 
 -(NSInteger)tableView:(PostListTableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+    return self.postList.count;
 }
 
 - (PostListCell *)tableView:(PostListTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,10 +109,13 @@
     if (!cell) {
         cell = [[PostListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
-    cell.textLabel.text = @"Title";
-    cell.detailTextLabel.text = @"description";
+    PostModel* post = (PostModel* )self.postList[indexPath.row];
+    cell.textLabel.text = post.headline;
+    cell.detailTextLabel.text = post.content;
     return cell;
 }
+
+#pragma mark - tableView Delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -105,6 +129,18 @@
     PostViewController* pvc = (PostViewController* )[segue destinationViewController];
     PostModel* post = (PostModel*) sender;
     pvc.postModel = post;
+}
+
+#pragma mark - postModel Delegate
+
+-(void)didFetchDataAll:(NSMutableArray *)postList
+{
+    self.postList = postList;
+}
+
+-(void)failToFetchDataAll:(NSError *)error
+{
+    NSLog(@"%@",error);
 }
 
 @end

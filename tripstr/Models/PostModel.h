@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class PostModel;
+@protocol PostModelDelegate <NSObject>
+
+-(void) didFetchDataAll: (NSMutableArray*) postList;
+-(void) failToFetchDataAll: (NSError*) error;
+
+@end
+
+
 @interface PostModel : NSObject
 
 @property (nonatomic,strong) NSString* postId;
@@ -16,6 +25,8 @@
 @property (nonatomic,strong) NSString* location;
 @property (nonatomic,strong) NSString* photoURLString;
 @property (nonatomic,strong) NSString* authorId;
+
+@property (nonatomic,strong) id <PostModelDelegate> delegate;
 
 -(void) fetchPostListAll;
 

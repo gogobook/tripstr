@@ -10,6 +10,7 @@
 #import <JASidePanelController.h>
 #import "LeftMenuViewController.h"
 #import "BrowseViewController.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -26,6 +27,10 @@
 //    
 //    self.window.rootViewController = self.viewController;
 //    [self.window makeKeyAndVisible];
+    
+    //Parse Credentials
+    [Parse setApplicationId:@"dzjOWspWXbTFLaGXMV0NtIdIzj5oOsnMU01WTyB4"
+                  clientKey:@"Wl4Grdu5acZNTSA7Frft8BOjVq49oyU3kpleO2ek"];
 
     return YES;
 }

@@ -10,4 +10,11 @@
 
 @interface PostModel : NSObject
 
+@property (nonatomic,strong) NSString* postId;
+@property (nonatomic,strong) NSString* headline;
+@property (nonatomic,strong) NSString* content;
+@property (nonatomic,strong) NSString* location;
+@property (nonatomic,strong) NSString* photoURLString;
+@property (nonatomic,strong) NSString* authorId;
+
 @end

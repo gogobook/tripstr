@@ -20,20 +20,11 @@
 
 @implementation BrowseViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (id)init
 {
     self = [super init];
     if (self) {
-        NSLog(@"BrowseViewController initiated");
+        //
     }
     return self;
 }
@@ -42,24 +33,40 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self setupLayout];
+    [self setupConstraints];
+
+}
+
+- (void)setupLayout
+{
+    self.navigationItem.title =@"Browse";
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:kColorNavOrange];
+    self.navigationController.navigationBar.translucent = NO;
+    
     [self.view addSubview:self.tableView];
 }
 
-- (void)didReceiveMemoryWarning
+- (void) setupConstraints
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSDictionary* dict = @{@"tableView":self.tableView};
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[tableView]|" options:0 metrics:nil views:dict]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[tableView]|" options:0 metrics:nil views:dict]];
 }
+
 
 #pragma mark - getter
 - (PostListTableView *)tableView
 {
-    if (!_tableView) {
-        CGRect frame = self.view.frame;
-        frame.origin.y = 164;
-        _tableView = [[PostListTableView alloc] initWithFrame:frame];
+    if (!_tableView)
+    {
+        _tableView = [[PostListTableView alloc] init];
+        _tableView.translatesAutoresizingMaskIntoConstraints = NO;
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        
+        _tableView.backgroundColor = [UIColor redColor];
     }
     return _tableView;
 }

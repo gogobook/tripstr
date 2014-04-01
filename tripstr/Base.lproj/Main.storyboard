@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Kb5-cX-OFY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GZH-i7-jCB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y1h-oK-uVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="531" y="37"/>
+            <point key="canvasLocation" x="665" y="29"/>
         </scene>
         <!--Travel List View Controller - Travel List-->
         <scene sceneID="Cgi-rE-jq9">
@@ -105,30 +105,30 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXa-5y-oNn">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="67" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Post Title..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jqn-yM-R8I">
-                                        <rect key="frame" x="105" y="87" width="195" height="30"/>
+                                        <rect key="frame" x="105" y="20" width="195" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select City..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QBV-cW-Ezc">
-                                        <rect key="frame" x="105" y="133" width="195" height="30"/>
+                                        <rect key="frame" x="105" y="66" width="195" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-c1-D21">
-                                        <rect key="frame" x="20" y="176" width="280" height="96"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" canCancelContentTouches="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-c1-D21">
+                                        <rect key="frame" x="20" y="109" width="280" height="96"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" keyboardAppearance="light" returnKeyType="done"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aET-2X-CLw">
-                                        <rect key="frame" x="20" y="87" width="81" height="76"/>
+                                        <rect key="frame" x="20" y="20" width="81" height="76"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,7 +151,7 @@
                                 <action selector="cancelButtonTapped:" destination="SsN-Bl-nQD" id="WcV-Lr-0w0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Finish" id="LlM-aZ-wZ0">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="LlM-aZ-wZ0">
                             <connections>
                                 <action selector="finishButtonTapped:" destination="SsN-Bl-nQD" id="NKZ-hQ-uou"/>
                             </connections>
@@ -244,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="311-tC-zXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1400" y="37"/>
+            <point key="canvasLocation" x="1926" y="37"/>
         </scene>
         <!--Post View Controller - Post-->
         <scene sceneID="dhY-u7-6wh">
@@ -275,25 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iw5-Yz-XxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1037" y="37"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="65L-9k-QH4">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ktc-Hp-ybu" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9qM-ex-Qsz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="xL5-ba-f1v" kind="relationship" relationship="rootViewController" id="vOi-id-tVm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5e5-zl-PVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-29" y="37"/>
+            <point key="canvasLocation" x="1563" y="37"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9W6-Gw-rDX">
@@ -330,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61e-NP-6zH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133" y="2322"/>
+            <point key="canvasLocation" x="85" y="1190"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kxR-dd-5SP">
@@ -386,6 +368,24 @@
             </objects>
             <point key="canvasLocation" x="1563" y="824"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nbz-KV-TN4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GZH-i7-jCB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lxj-op-oF9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xL5-ba-f1v" kind="relationship" relationship="rootViewController" id="AND-mj-OQr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4U-ou-iNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13" y="37"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -393,6 +393,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="a4T-cx-RtU"/>
+        <segue reference="LBc-8w-R4J"/>
     </inferredMetricsTieBreakers>
 </document>

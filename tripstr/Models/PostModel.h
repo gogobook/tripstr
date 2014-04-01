@@ -17,4 +17,7 @@
 @property (nonatomic,strong) NSString* photoURLString;
 @property (nonatomic,strong) NSString* authorId;
 
+-(void) fetchPostListAll;
+
+
 @end

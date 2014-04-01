@@ -11,6 +11,8 @@
 #import "PostListCell.h"
 #import "PostModel.h"
 
+#import "PostViewController.h"
+
 @interface BrowseViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic,strong) PostListTableView* tableView;
@@ -100,7 +102,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    PostViewController* pvc = (PostViewController* )[segue destinationViewController];
+    PostModel* post = (PostModel*) sender;
+    pvc.postModel = post;
 }
 
 @end

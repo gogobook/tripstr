@@ -10,4 +10,10 @@
 
 @implementation PostModel
 
+-(void)fetchPostListAll
+{
+    NSMutableArray* postArray = @[].mutableCopy;
+    
+}
+
 @end

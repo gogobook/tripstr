@@ -14,6 +14,9 @@
 #import "TravelListViewController.h"
 #import "PostListViewController.h"
 
+#import <UIViewController+JASidePanel.h>
+#import <JASidePanelController.h>
+
 typedef enum LeftMenuItem {
     LeftMenuItemBrowse,LeftMenuItemTravels,LeftMenuItemPosts
 }LeftMenuItem;
@@ -95,19 +98,20 @@ typedef enum LeftMenuItem {
         case LeftMenuItemBrowse:
         {
             NSLog(@"Browse tapped");
-            self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[BrowseViewController alloc] init]];
+            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[BrowseViewController alloc] init]];
             break;
         }
         case LeftMenuItemTravels:
         {
             NSLog(@"Travel tapped");
-            self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[TravelListViewController alloc] init]];
+            TravelListViewController* tlvc = [[TravelListViewController alloc] init];
+            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:tlvc];
             break;
         }
         case LeftMenuItemPosts:
         {
             NSLog(@"Posts tapped");
-            self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[PostListViewController alloc] init]];
+            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[PostListViewController alloc] init]];
             break;
         }
         default:

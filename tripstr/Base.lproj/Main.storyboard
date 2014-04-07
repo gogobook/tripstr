@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y1h-oK-uVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="29"/>
+            <point key="canvasLocation" x="1025" y="37"/>
         </scene>
         <!--Travel List View Controller - Travel List-->
         <scene sceneID="Cgi-rE-jq9">
@@ -206,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ta4-i3-HKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1561" y="2127"/>
+            <point key="canvasLocation" x="1926" y="2119"/>
         </scene>
         <!--Travel Plan View Controller - Travel Plan-->
         <scene sceneID="l58-Or-GFW">
@@ -348,7 +348,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKZ-YV-Rdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035" y="2127"/>
+            <point key="canvasLocation" x="1563" y="2119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pjp-v5-snW">
@@ -384,7 +384,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4U-ou-iNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13" y="37"/>
+            <point key="canvasLocation" x="659" y="37"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

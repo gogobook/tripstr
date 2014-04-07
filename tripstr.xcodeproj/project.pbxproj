@@ -238,6 +238,8 @@
 			children = (
 				AA61B87A18D6E5AD00A77443 /* BrowseViewController.h */,
 				AA61B87B18D6E5AD00A77443 /* BrowseViewController.m */,
+				AA61B88C18D6EBA900A77443 /* PostListViewController.h */,
+				AA61B88D18D6EBA900A77443 /* PostListViewController.m */,
 				AA61B87D18D6EAD700A77443 /* PostViewController.h */,
 				AA61B87E18D6EAD700A77443 /* PostViewController.m */,
 				AA61B88018D6EAEE00A77443 /* ProfileViewController.h */,
@@ -248,8 +250,6 @@
 				AA61B88718D6EB7800A77443 /* TravelPlanViewController.m */,
 				AA61B88918D6EB9900A77443 /* AddTravelViewController.h */,
 				AA61B88A18D6EB9900A77443 /* AddTravelViewController.m */,
-				AA61B88C18D6EBA900A77443 /* PostListViewController.h */,
-				AA61B88D18D6EBA900A77443 /* PostListViewController.m */,
 				AA61B88F18D6EBCB00A77443 /* AddPostViewController.h */,
 				AA61B89018D6EBCB00A77443 /* AddPostViewController.m */,
 				AA61B89218D6EBE700A77443 /* MyProfileViewController.h */,

@@ -98,7 +98,8 @@ typedef enum LeftMenuItem {
         case LeftMenuItemBrowse:
         {
             NSLog(@"Browse tapped");
-            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[BrowseViewController alloc] init]];
+            BrowseViewController* bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"bvc"];
+            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:bvc];
             break;
         }
         case LeftMenuItemTravels:

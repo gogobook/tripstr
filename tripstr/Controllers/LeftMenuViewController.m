@@ -104,14 +104,15 @@ typedef enum LeftMenuItem {
         case LeftMenuItemTravels:
         {
             NSLog(@"Travel tapped");
-            TravelListViewController* tlvc = [[TravelListViewController alloc] init];
+            TravelListViewController* tlvc = [self.storyboard instantiateViewControllerWithIdentifier:@"tlvc"];
             self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:tlvc];
             break;
         }
         case LeftMenuItemPosts:
         {
             NSLog(@"Posts tapped");
-            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[PostListViewController alloc] init]];
+            PostListViewController* plvc = [self.storyboard instantiateViewControllerWithIdentifier:@"plvc"];
+            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:plvc];
             break;
         }
         default:

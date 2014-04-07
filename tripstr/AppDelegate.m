@@ -16,28 +16,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+    
     //Parse Credentials
     [Parse setApplicationId:@"dzjOWspWXbTFLaGXMV0NtIdIzj5oOsnMU01WTyB4"
                   clientKey:@"Wl4Grdu5acZNTSA7Frft8BOjVq49oyU3kpleO2ek"];
     
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    
-//    self.viewController = [[JASidePanelController alloc] init];
-//    self.viewController.shouldDelegateAutorotateToVisiblePanel = NO;
-//    
-//    self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController: [[LeftMenuViewController alloc] init]];
-//    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[BrowseViewController alloc] init]];
-//    self.viewController.leftFixedWidth = 270;
-//    
-//    self.window.rootViewController = self.viewController;
-//    [self.window makeKeyAndVisible];
-    
+    //Setup JASidePanel
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     self.viewController = [[JASidePanelController alloc] init];
-    self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController:[[LeftMenuViewController alloc] init]];
-    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[BrowseViewController alloc] init]];
     self.viewController.leftFixedWidth = 270;
+    
+    LeftMenuViewController* lmvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"lmvc"];
+    self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController:lmvc];
+    BrowseViewController* bvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"bvc"];
+    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:bvc];
+    
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

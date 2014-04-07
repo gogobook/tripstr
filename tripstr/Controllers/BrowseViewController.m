@@ -25,15 +25,6 @@
 
 @implementation BrowseViewController
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        //
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -120,7 +111,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PostModel* post = self.postList[indexPath.row];
-    [self performSegueWithIdentifier:@"BrowseToPostViewSegue" sender:post];
+    [self performSegueWithIdentifier:@"BrowseToPostSegue" sender:post];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

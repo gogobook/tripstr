@@ -11,6 +11,7 @@
 #import "LeftMenuViewController.h"
 #import "BrowseViewController.h"
 #import <Parse/Parse.h>
+#import "LoginViewController.h"
 
 @implementation AppDelegate
 
@@ -23,6 +24,8 @@
     [Parse setApplicationId:@"dzjOWspWXbTFLaGXMV0NtIdIzj5oOsnMU01WTyB4"
                   clientKey:@"Wl4Grdu5acZNTSA7Frft8BOjVq49oyU3kpleO2ek"];
     
+    [PFFacebookUtils initializeFacebook];
+    
     //Setup JASidePanel
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.viewController = [[JASidePanelController alloc] init];
@@ -32,6 +35,8 @@
     self.viewController.leftPanel = [[UINavigationController alloc] initWithRootViewController:lmvc];
     BrowseViewController* bvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"bvc"];
     self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:bvc];
+//    LoginViewController* lvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"lvc"];
+//    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:lvc];
     
     
     self.window.rootViewController = self.viewController;
@@ -41,7 +46,20 @@
 
     return YES;
 }
-							
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -57,11 +75,6 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

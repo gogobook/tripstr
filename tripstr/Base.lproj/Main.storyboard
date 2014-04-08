@@ -180,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmq-Bm-FV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-363" y="1190"/>
+            <point key="canvasLocation" x="114" y="824"/>
         </scene>
         <!--Add Travel View Controller - Add a Travel Plan-->
         <scene sceneID="6dc-9d-m3v">
@@ -295,6 +295,24 @@
             </objects>
             <point key="canvasLocation" x="659" y="1687"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Lox-Ld-7Kr">
+            <objects>
+                <viewController storyboardIdentifier="lvc" id="akY-df-8Vn" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cLE-2K-ls6"/>
+                        <viewControllerLayoutGuide type="bottom" id="eRa-qq-lZ0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IF9-wu-aMh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tdo-Z0-HmA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="218"/>
+        </scene>
         <!--My Profile View Controller-->
         <scene sceneID="ZN5-3b-ugT">
             <objects>
@@ -312,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61e-NP-6zH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85" y="1190"/>
+            <point key="canvasLocation" x="114" y="1687"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kxR-dd-5SP">

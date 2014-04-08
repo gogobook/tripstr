@@ -78,7 +78,7 @@ typedef enum LeftMenuItem {
 #pragma mark- tableView DataSource
 -(NSInteger)tableView:(LeftMenuTableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.menuList count];
+    return self.menuList.count;
 }
 -(LeftMenuCell *)tableView:(LeftMenuTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

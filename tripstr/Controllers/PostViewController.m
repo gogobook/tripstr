@@ -10,18 +10,27 @@
 
 @interface PostViewController ()
 
+@property (nonatomic,strong) UILabel* headline;
+@property (nonatomic,strong) UILabel* location;
+@property (nonatomic,strong) UIImageView* photo;
+@property (nonatomic,strong) UILabel* content;
+
+@property (nonatomic,strong) UILabel* authorName;
+@property (nonatomic,strong) UIImageView* authorAvatar;
+@property (nonatomic,strong) UILabel* authorIntro;
+
+//
+//self.postId = objId;
+//self.headline = data[@"headline"];
+//self.content = data[@"content"];
+//self.location = data[@"location"];
+//self.photoURLString = data[@"photoURLString"];
+//self.authorId = data[@"authorId"];
+
+
 @end
 
 @implementation PostViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -30,10 +39,5 @@
     NSLog(@"postVC loaded");
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

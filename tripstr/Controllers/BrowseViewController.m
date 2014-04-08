@@ -13,6 +13,8 @@
 
 #import "PostViewController.h"
 #import <MBProgressHUD.h>
+#import <Parse/Parse.h>
+#import "LoginViewController.h"
 
 @interface BrowseViewController () <UITableViewDataSource, UITableViewDelegate, PostModelDelegate>
 
@@ -29,13 +31,29 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+
     [self setupLayout];
     [self setupConstraints];
     
     [self.postModel fetchPostListAll];
 
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+    BOOL loggedIn = [PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
+    
+    if (!loggedIn)
+    {
+        LoginViewController* lvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"lvc"];
+        [self.navigationController presentViewController:lvc animated:YES completion:nil];
+    } else {
+        NSLog(@"The user is logged in");
+    }
+}
+
 
 - (void)setupLayout
 {

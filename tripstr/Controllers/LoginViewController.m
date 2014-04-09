@@ -55,34 +55,40 @@
                 [alert show];
             }
         } else if (user.isNew) {
-            NSLog(@"User with facebook signed up and logged in!");
-//            [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
-            
-            NSDictionary* param = @{@"fields": @"id,name,picture,location,email"};
+            NSDictionary* param = @{@"fields": @"id,name,picture,location,email,bio"};
             [FBRequestConnection startWithGraphPath:@"me"
                                          parameters:param
                                          HTTPMethod:@"GET"
                                   completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                                       NSLog(@"%@",result);
-                                      if (error) {
-                                          //[self processFetchFriendsListError:error];
-                                          NSLog(@"%@",error);
+                                      if (!error) {
+                                          [self signupAction:result];
                                       } else {
-                                          //[self processFetchResults:result];
+                                        NSLog(@"%@",error);
                                       }
-                                      [self.navigationController popToViewController:self animated:YES];
                                   }];
-            
-            
-            
         } else {
-            NSLog(@"User with facebook logged in!");
-//            [self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
-            [self.navigationController popToViewController:self animated:YES];
-            
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
 
+}
+
+-(void) signupAction: (id) result
+{
+    PFUser* user = [PFUser currentUser];
+    user.email = result[@"email"];
+    user[@"location"] = result[@"location"][@"name"];
+    user[@"name"] = result[@"name"];
+    user[@"avatarURL"] = result[@"picture"][@"data"][@"url"];
+    user[@"description"] = result[@"bio"];
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            NSLog(@"error: %@",error);
+        }
+    }];
 }
 
 #pragma mark- getter

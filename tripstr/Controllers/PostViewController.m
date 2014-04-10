@@ -37,6 +37,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSLog(@"postVC loaded");
+    NSLog(@"post sent in: %@", self.postModel.headline);
 }
 
 

@@ -32,7 +32,7 @@
 	// Do any additional setup after loading the view.
     [self setLayout];
     [self setupConstraints];
-    [self.post fetchPostListAll];
+    [self.post fetchPostListMe];
 
 }
 

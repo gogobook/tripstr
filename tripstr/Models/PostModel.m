@@ -60,4 +60,28 @@
     // PFQuery works asynchronously, codes after this line will be executed immediately after query is called.
 }
 
+-(void)fetchPostListMe
+{
+    NSMutableArray* postArray = @[].mutableCopy;
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"postData"];
+    [postQuery whereKey:@"author" equalTo:[PFUser currentUser]];
+    
+    // Run the query
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            [objects enumerateObjectsUsingBlock:^(PFObject* obj, NSUInteger idx, BOOL *stop) {
+                PostModel* post = [PostModel postWithObjData:obj andObjId: obj.objectId];
+                [postArray addObject:post];
+            }];
+            
+            if ([self.delegate respondsToSelector:@selector(didFetchDataAll:)]) {
+                [self.delegate didFetchDataAll:postArray];
+            } else {
+                NSLog(@"PostModel|fetchPostListMe|didFetchDataAll: not implemented");
+            }
+        }
+    }];
+
+}
+
 @end

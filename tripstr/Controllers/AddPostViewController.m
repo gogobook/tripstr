@@ -140,6 +140,7 @@ typedef enum ImagePickerType{
     newPost[@"location"] = self.location.text;
     newPost[@"content"] = self.content.text;
     newPost[@"photo"] = imageFile;
+    newPost[@"author"] = [PFUser currentUser];
     [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [self.hud hide:YES];

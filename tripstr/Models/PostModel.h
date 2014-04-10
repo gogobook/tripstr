@@ -29,6 +29,6 @@
 @property (nonatomic,strong) id <PostModelDelegate> delegate;
 
 -(void) fetchPostListAll;
-
+-(void) fetchPostListMe;
 
 @end

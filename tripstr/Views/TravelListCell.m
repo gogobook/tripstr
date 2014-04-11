@@ -8,6 +8,7 @@
 
 #import "TravelListCell.h"
 
+
 @implementation TravelListCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

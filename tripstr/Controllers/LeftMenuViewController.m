@@ -17,14 +17,18 @@
 #import <UIViewController+JASidePanel.h>
 #import <JASidePanelController.h>
 
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <Parse/Parse.h>
+
 typedef enum LeftMenuItem {
-    LeftMenuItemBrowse,LeftMenuItemTravels,LeftMenuItemPosts
+    LeftMenuLogout,LeftMenuItemBrowse,LeftMenuItemTravels,LeftMenuItemPosts
 }LeftMenuItem;
 
 @interface LeftMenuViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) LeftMenuTableView* tableView;
 @property (nonatomic,strong) NSArray* menuList;
+
 //
 //@property (nonatomic,strong) BrowseViewController* browseViewController;
 //@property (nonatomic,strong) TravelListViewController* travelListViewcontroller;
@@ -63,6 +67,7 @@ typedef enum LeftMenuItem {
         _tableView = [[LeftMenuTableView alloc] initWithFrame:CGRectMake(0, 64, 320, 480)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.scrollEnabled = NO;
     }
     return _tableView;
 }
@@ -75,10 +80,10 @@ typedef enum LeftMenuItem {
     return _menuList;
 }
 
-#pragma mark- tableView DataSource
+#pragma mark- tableView DataSource/delegate
 -(NSInteger)tableView:(LeftMenuTableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.menuList.count;
+    return self.menuList.count+1;
 }
 -(LeftMenuCell *)tableView:(LeftMenuTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -87,9 +92,27 @@ typedef enum LeftMenuItem {
     if (!cell) {
         cell = [[LeftMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    cell.textLabel.text = self.menuList[indexPath.row];
+    
+    if (indexPath.row == 0) {
+        cell.menuType = MenuTypeUser;
+        cell.nameLabel.text = [PFUser currentUser][@"name"]; //@"David Chi-Tai Wang";
+        cell.locationLabel.text = [PFUser currentUser][@"location"];//@"Taipei Taiwan";
+        [cell.avatarImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large",[PFUser currentUser][@"fbID"]]]];
+    } else {
+    cell.textLabel.text = self.menuList[indexPath.row-1];
+    }
     return cell;
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 200;
+    } else {
+        return 50;
+    }
+}
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -114,6 +137,14 @@ typedef enum LeftMenuItem {
             NSLog(@"Posts tapped");
             PostListViewController* plvc = [self.storyboard instantiateViewControllerWithIdentifier:@"plvc"];
             self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:plvc];
+            break;
+        }
+        case LeftMenuLogout:
+        {
+            NSLog(@"logout tapped");
+            [PFUser logOut];
+            BrowseViewController* bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"bvc"];
+            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:bvc];
             break;
         }
         default:

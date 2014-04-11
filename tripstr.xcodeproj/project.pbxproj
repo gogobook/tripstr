@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6D6183452CF6448E880D6919 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79BF636E65436EBBD43AA2 /* libPods.a */; };
+		AA3DFDCF18F798F80027A52D /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3DFDCE18F798F80027A52D /* UserModel.m */; };
 		AA61B83F18D6DD8500A77443 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA61B83E18D6DD8500A77443 /* Foundation.framework */; };
 		AA61B84118D6DD8500A77443 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA61B84018D6DD8500A77443 /* CoreGraphics.framework */; };
 		AA61B84318D6DD8500A77443 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA61B84218D6DD8500A77443 /* UIKit.framework */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA3DFDCD18F798F80027A52D /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = Models/UserModel.h; sourceTree = "<group>"; };
+		AA3DFDCE18F798F80027A52D /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = Models/UserModel.m; sourceTree = "<group>"; };
 		AA61B83B18D6DD8500A77443 /* tripstr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tripstr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA61B83E18D6DD8500A77443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AA61B84018D6DD8500A77443 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -269,6 +272,8 @@
 				AA6543ED18D7E32D00D3EC56 /* PostModel.m */,
 				AA6543FB18D80F1C00D3EC56 /* TravelPlanModel.h */,
 				AA6543FC18D80F1C00D3EC56 /* TravelPlanModel.m */,
+				AA3DFDCD18F798F80027A52D /* UserModel.h */,
+				AA3DFDCE18F798F80027A52D /* UserModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				AA61B88818D6EB7800A77443 /* TravelPlanViewController.m in Sources */,
 				AA61B88218D6EAEE00A77443 /* ProfileViewController.m in Sources */,
 				AA61B89418D6EBE700A77443 /* MyProfileViewController.m in Sources */,
+				AA3DFDCF18F798F80027A52D /* UserModel.m in Sources */,
 				AA6543FA18D80EDF00D3EC56 /* TravelListCell.m in Sources */,
 				AA6543EB18D7E1F300D3EC56 /* PostListTableView.m in Sources */,
 				AA6543F418D7E5D000D3EC56 /* PostListCell.m in Sources */,

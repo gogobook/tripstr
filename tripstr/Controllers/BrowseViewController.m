@@ -44,17 +44,18 @@
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                              bundle: nil];
     LoginViewController* lvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"lvc"];
+    lvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     BOOL loggedIn = [PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
     
     if (!loggedIn)
     {
-        [self.navigationController presentViewController:lvc animated:YES completion:nil];
+        [self presentViewController:lvc animated:NO completion:nil];
     } else {
         FBRequest *request = [FBRequest requestForMe];
         [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
             if (error) {
                 [PFUser logOut];
-                [self.navigationController presentViewController:lvc animated:YES completion:nil];
+                [self presentViewController:lvc animated:YES completion:nil];
             }
         }];
     }
@@ -95,8 +96,6 @@
         _tableView.translatesAutoresizingMaskIntoConstraints = NO;
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        
-        _tableView.backgroundColor = [UIColor redColor];
     }
     return _tableView;
 }

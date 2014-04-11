@@ -77,6 +77,7 @@
 -(void) signupAction: (id) result
 {
     PFUser* user = [PFUser currentUser];
+    user[@"fbID"] = result[@"id"];
     user.email = result[@"email"];
     user[@"location"] = result[@"location"][@"name"];
     user[@"name"] = result[@"name"];

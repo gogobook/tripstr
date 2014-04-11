@@ -19,11 +19,63 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+#pragma mark- setter
+-(void)setMenuType:(MenuType)menuType
+{
+    switch (menuType) {
+        case MenuTypeUser:
+            [self addSubview:self.avatarImageView];
+            [self addSubview:self.nameLabel];
+            [self addSubview:self.locationLabel];
+            [self setupConstraints];
+            break;
+        case MenuTypeIndex:
+            //
+            break;
+        default:
+            break;
+    }
+}
+
+-(void) setupConstraints
+{
+    NSDictionary* views = @{@"avatar":self.avatarImageView,@"name":self.nameLabel,@"location":self.locationLabel};
+    [self addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[avatar(100)]-10-[name(30)]-2-[location(30)]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+    [self addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-85-[avatar(100)]" options:0 metrics:nil views:views]];
+}
+
+
+#pragma mark- getter
+
+-(UIImageView *)avatarImageView
+{
+    if (!_avatarImageView) {
+        _avatarImageView = [[UIImageView alloc] init];
+        _avatarImageView.translatesAutoresizingMaskIntoConstraints = NO;
+        _avatarImageView.backgroundColor = [UIColor yellowColor];
+        _avatarImageView.layer.masksToBounds = YES;
+        _avatarImageView.layer.cornerRadius = 50;
+    }
+    return _avatarImageView;
+}
+
+-(UILabel *)nameLabel
+{
+    if (!_nameLabel) {
+        _nameLabel = [[UILabel alloc] init];
+        _nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _nameLabel;
+}
+
+-(UILabel *)locationLabel
+{
+    if (!_locationLabel) {
+        _locationLabel = [[UILabel alloc] init];
+        _locationLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _locationLabel;
 }
 
 @end

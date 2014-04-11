@@ -19,7 +19,10 @@
     self.content = data[@"content"];
     self.location = data[@"location"];
     self.photoURLString = data[@"photoURLString"];
-    self.authorId = data[@"authorId"];
+    self.authorName = @"";
+//    PFUser* author = data[@"author"];
+//    [author fetchIfNeeded];
+//    self.authorName = author[@"name"];
     return self;
 }
 
@@ -46,6 +49,7 @@
             
             [objects enumerateObjectsUsingBlock:^(PFObject* obj, NSUInteger idx, BOOL *stop) {
                 PostModel* post = [PostModel postWithObjData:obj andObjId: obj.objectId];
+                NSLog(@"%@",post.authorName);
                 [postArray addObject:post];
             }];
             
@@ -64,14 +68,22 @@
 {
     NSMutableArray* postArray = @[].mutableCopy;
     PFQuery *postQuery = [PFQuery queryWithClassName:@"postData"];
-    [postQuery whereKey:@"author" equalTo:[PFUser currentUser]];
+    [postQuery whereKey:@"authorRelation" equalTo:[PFUser currentUser]];
+//    [postQuery includeKey:@"author"];
     
     // Run the query
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             [objects enumerateObjectsUsingBlock:^(PFObject* obj, NSUInteger idx, BOOL *stop) {
+                NSLog(@"\n\n %@ \n\n",obj[@"authorRelation"]);
                 PostModel* post = [PostModel postWithObjData:obj andObjId: obj.objectId];
+//                NSLog(@"%@",post.authorName);
                 [postArray addObject:post];
+                
+                
+                
+                
+                
             }];
             
             if ([self.delegate respondsToSelector:@selector(didFetchDataAll:)]) {

@@ -119,9 +119,7 @@ typedef enum ImagePickerType{
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"didFinish: %@",info);
     self.selectedImage = info[@"UIImagePickerControllerOriginalImage"];
-    NSLog(@"selectedImage: %@",self.selectedImage);
     [self.addPhotoButton setBackgroundImage:self.selectedImage forState:UIControlStateNormal];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
@@ -129,18 +127,22 @@ typedef enum ImagePickerType{
 
 
 - (void)finishButtonTapped:(id)sender {
-    NSLog(@"%@,%@,%@",self.headline.text,self.location.text,self.content.text);
-    //--
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.navigationItem.leftBarButtonItem.enabled = NO;
     [self.hud show:YES];
     NSData* imageData = UIImageJPEGRepresentation(self.selectedImage, 0.8);
     PFFile* imageFile = [PFFile fileWithName:@"userImage.jpg" data:imageData];
+    
     
     PFObject* newPost = [PFObject objectWithClassName:@"postData"];
     newPost[@"headline"] = self.headline.text;
     newPost[@"location"] = self.location.text;
     newPost[@"content"] = self.content.text;
     newPost[@"photo"] = imageFile;
-    newPost[@"author"] = [PFUser currentUser];
+//    newPost[@"author"] = [PFUser currentUser];
+    PFRelation* authorRelation = [newPost relationForKey:@"authorRelation"];
+    [authorRelation addObject:[PFUser currentUser]];
+    
     [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [self.hud hide:YES];

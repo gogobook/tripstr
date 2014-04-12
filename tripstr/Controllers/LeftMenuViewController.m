@@ -24,7 +24,7 @@ typedef enum LeftMenuItem {
     LeftMenuLogout,LeftMenuItemBrowse,LeftMenuItemTravels,LeftMenuItemPosts
 }LeftMenuItem;
 
-@interface LeftMenuViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface LeftMenuViewController () <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 
 @property (nonatomic,strong) LeftMenuTableView* tableView;
 @property (nonatomic,strong) NSArray* menuList;
@@ -142,9 +142,9 @@ typedef enum LeftMenuItem {
         case LeftMenuLogout:
         {
             NSLog(@"logout tapped");
-            [PFUser logOut];
-            BrowseViewController* bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"bvc"];
-            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:bvc];
+            UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"Are you sure you want to log out?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Log out" otherButtonTitles: nil];
+            [sheet showInView:self.view];
+            
             break;
         }
         default:
@@ -153,6 +153,15 @@ typedef enum LeftMenuItem {
     }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [PFUser logOut];
+        BrowseViewController* bvc = [self.storyboard instantiateViewControllerWithIdentifier:@"bvc"];
+        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:bvc];
+    }
 }
 
 @end

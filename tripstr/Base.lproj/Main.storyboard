@@ -249,6 +249,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="1gg-kQ-yuc"/>
+                    <connections>
+                        <segue destination="tyY-Vj-XUk" kind="push" identifier="postToProfileSegue" id="efp-4i-VFZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iw5-Yz-XxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

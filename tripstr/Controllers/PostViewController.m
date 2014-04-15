@@ -11,6 +11,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #import "UserModel.h"
+#import "ProfileViewController.h"
 
 @interface PostViewController () <UserModelDelegate>
 
@@ -89,6 +90,20 @@
     
 }
 
+#pragma mark- actions
+-(void) toProfileButtonTapped
+{
+    UserModel* author = self.author;
+    [self performSegueWithIdentifier:@"postToProfileSegue" sender:author];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ProfileViewController* pvc = (ProfileViewController*) [segue destinationViewController];
+    pvc.author = (UserModel*) sender;
+    
+}
+
 #pragma mark- getters
 
 -(UIScrollView *)scrollView
@@ -128,14 +143,6 @@
         _photo = [[UIImageView alloc] initForAutoLayout];
         _photo.backgroundColor = [UIColor blueColor];
         [_photo setImageWithURL:[NSURL URLWithString:self.postModel.photoURLString]];
-//        PFFile* file = self.postModel.photo;
-//        [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-//            if (!error) {
-//                _photo.image = [UIImage imageWithData:data];
-//            } else {
-//                NSLog(@"error: %@",error);
-//            }
-//        }];
     }
     return _photo;
 }
@@ -160,6 +167,7 @@
         [_toProfileButton setBackgroundColor:[UIColor brownColor]];
         _toProfileButton.layer.cornerRadius = 5;
         _toProfileButton.clipsToBounds = YES;
+        [_toProfileButton addTarget:self action:@selector(toProfileButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     }
     return  _toProfileButton;
 }
@@ -178,6 +186,8 @@
     if (!_authorPic) {
         _authorPic = [[UIImageView alloc] initForAutoLayout];
         [_authorPic setImageWithURL:[NSURL URLWithString:self.author.avatarUrlString]];
+        _authorPic.layer.cornerRadius = 33;
+        _authorPic.clipsToBounds = YES;
     }
     return _authorPic;
 }
@@ -223,7 +233,7 @@
     [self.authorNameLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20];
     
     [self.authorlocationLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.authorNameLabel withOffset:5];
-    [self.authorlocationLabel autoAlignAxis:ALAxisVertical toSameAxisOfView:self.authorNameLabel];
+    [self.authorlocationLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.authorNameLabel];
     
     [self.toProfileButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [self.toProfileButton autoSetDimension:ALDimensionWidth toSize:280];

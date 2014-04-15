@@ -25,7 +25,7 @@
     UserModel* author = [[UserModel alloc] init];
     PFQuery *query = [PFUser query];
     [query getObjectInBackgroundWithId:authorId block:^(PFObject *object, NSError *error) {
-        
+
         if (!error) {
             author.avatarUrlString = object[@"avatarURL"];
             author.email = object[@"email"];

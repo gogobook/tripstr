@@ -38,9 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    NSLog(@"postVC loaded");
-    NSLog(@"post sent in: %@", self.postModel.headline);
+    
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"heart"]]];
     [self setLayout];

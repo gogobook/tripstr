@@ -108,7 +108,6 @@
 {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initForAutoLayout];
-        _scrollView.backgroundColor = [UIColor grayColor];
     }
     return _scrollView;
 }
@@ -117,7 +116,6 @@
 {
     if (!_headline) {
         _headline = [[UILabel alloc] initForAutoLayout];
-        _headline.backgroundColor = [UIColor yellowColor];
         _headline.numberOfLines = 2;
         _headline.lineBreakMode = NSLineBreakByWordWrapping;
         _headline.text = self.postModel.headline;
@@ -129,7 +127,6 @@
 {
     if (!_location) {
         _location = [[UILabel alloc] initForAutoLayout];
-        _location.backgroundColor = [UIColor greenColor];
         _location.text = self.postModel.location;
     }
     return _location;
@@ -139,7 +136,7 @@
 {
     if (!_photo) {
         _photo = [[UIImageView alloc] initForAutoLayout];
-        _photo.backgroundColor = [UIColor blueColor];
+        _photo.backgroundColor = [UIColor grayColor];
         [_photo setImageWithURL:[NSURL URLWithString:self.postModel.photoURLString]];
     }
     return _photo;
@@ -149,7 +146,6 @@
 {
     if (!_content) {
         _content = [[UILabel alloc] initForAutoLayout];
-        _content.backgroundColor = [UIColor purpleColor];
         _content.numberOfLines = 0;
         _content.lineBreakMode = NSLineBreakByWordWrapping;
         _content.text = self.postModel.content;
@@ -162,7 +158,7 @@
     if (!_toProfileButton) {
         _toProfileButton = [[UIButton alloc] initForAutoLayout];
         [_toProfileButton setTitle:@"Go to Author Page" forState:UIControlStateNormal];
-        [_toProfileButton setBackgroundColor:[UIColor brownColor]];
+        [_toProfileButton setBackgroundColor:[UIColor grayColor]];
         _toProfileButton.layer.cornerRadius = 5;
         _toProfileButton.clipsToBounds = YES;
         [_toProfileButton addTarget:self action:@selector(toProfileButtonTapped) forControlEvents:UIControlEventTouchUpInside];

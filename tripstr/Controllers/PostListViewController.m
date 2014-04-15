@@ -12,7 +12,7 @@
 #import "PostModel.h"
 
 #import "AddPostViewController.h"
-
+#import "PostViewController.h"
 
 @interface PostListViewController () <UITableViewDataSource,UITableViewDelegate,PostModelDelegate>
 
@@ -32,7 +32,7 @@
 	// Do any additional setup after loading the view.
     [self setLayout];
     [self setupConstraints];
-    [self.post fetchPostListMe];
+    [self.post fetchPostListAll];
 
 }
 
@@ -105,8 +105,18 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"PostListToPostSegue" sender:nil];
+    PostModel* post = self.postList[indexPath.row];
+    [self performSegueWithIdentifier:@"PostListToPostSegue" sender:post];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"PostListToPostSegue"]) {
+        PostViewController* pvc = (PostViewController*) [segue destinationViewController];
+        pvc.postModel = (PostModel*)sender;
+    }
+    
 }
 
 #pragma mark- postModel delegate

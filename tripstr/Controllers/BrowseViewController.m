@@ -75,7 +75,7 @@
 {
     NSDictionary* dict = @{@"tableView":self.tableView};
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[tableView]|" options:0 metrics:nil views:dict]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView]|" options:0 metrics:nil views:dict]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[tableView]|" options:0 metrics:nil views:dict]];
 }
 

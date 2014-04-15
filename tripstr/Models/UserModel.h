@@ -12,7 +12,7 @@
 @class UserModel;
 @protocol UserModelDelegate <NSObject>
 
--(void) didFetchUser: (UserModel*) User;
+-(void) didFetchUser: (UserModel*) user;
 -(void) failToFetchUser: (NSError*) error;
 
 @end
@@ -23,10 +23,12 @@
 @property (nonatomic,strong) NSString* name;
 @property (nonatomic,strong) NSString* email;
 @property (nonatomic,strong) NSString* avatarUrlString;
-@property (nonatomic,strong) NSString* description;
+@property (nonatomic,strong) NSString* introduction;
+@property (nonatomic,strong) NSString* location;
 @property (nonatomic,strong) id<UserModelDelegate> delegate;
 
 -(void) fetchUserMe;
 -(void) fetchUserAuthorByUser: (PFUser*) author;
+-(void) fetchUserWithUserId: (NSString*) authorId;
 
 @end

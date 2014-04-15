@@ -8,3 +8,5 @@ pod 'SIAlertView'
 pod 'MBProgressHUD'
 pod 'SDWebImage'
 pod 'Parse-iOS-SDK'
+
+pod "UIView+AutoLayout"

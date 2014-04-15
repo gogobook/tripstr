@@ -94,6 +94,7 @@ typedef enum LeftMenuItem {
     }
     
     if (indexPath.row == 0) {
+        NSLog(@"Current User: %@",[PFUser currentUser][@"name"]);
         cell.menuType = MenuTypeUser;
         cell.nameLabel.text = [PFUser currentUser][@"name"]; //@"David Chi-Tai Wang";
         cell.locationLabel.text = [PFUser currentUser][@"location"];//@"Taipei Taiwan";

@@ -7,7 +7,7 @@
 //
 
 #import "PostModel.h"
-#import <Parse/Parse.h>
+
 
 @implementation PostModel
 
@@ -19,7 +19,8 @@
     self.content = data[@"content"];
     self.location = data[@"location"];
     self.photoURLString = data[@"photoURLString"];
-    self.authorName = @"";
+    self.authorId = data[@"authorId"];
+    
 //    PFUser* author = data[@"author"];
 //    [author fetchIfNeeded];
 //    self.authorName = author[@"name"];
@@ -49,7 +50,6 @@
             
             [objects enumerateObjectsUsingBlock:^(PFObject* obj, NSUInteger idx, BOOL *stop) {
                 PostModel* post = [PostModel postWithObjData:obj andObjId: obj.objectId];
-                NSLog(@"%@",post.authorName);
                 [postArray addObject:post];
             }];
             
@@ -68,14 +68,12 @@
 {
     NSMutableArray* postArray = @[].mutableCopy;
     PFQuery *postQuery = [PFQuery queryWithClassName:@"postData"];
-    [postQuery whereKey:@"authorRelation" equalTo:[PFUser currentUser]];
-//    [postQuery includeKey:@"author"];
+    [postQuery whereKey:@"author" equalTo:[PFUser currentUser]];
     
     // Run the query
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             [objects enumerateObjectsUsingBlock:^(PFObject* obj, NSUInteger idx, BOOL *stop) {
-                NSLog(@"\n\n %@ \n\n",obj[@"authorRelation"]);
                 PostModel* post = [PostModel postWithObjData:obj andObjId: obj.objectId];
 //                NSLog(@"%@",post.authorName);
                 [postArray addObject:post];

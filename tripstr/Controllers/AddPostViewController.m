@@ -129,6 +129,7 @@ typedef enum ImagePickerType{
 - (void)finishButtonTapped:(id)sender {
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.leftBarButtonItem.enabled = NO;
+    self.headline.enabled = NO;
     [self.hud show:YES];
     NSData* imageData = UIImageJPEGRepresentation(self.selectedImage, 0.8);
     PFFile* imageFile = [PFFile fileWithName:@"userImage.jpg" data:imageData];
@@ -139,7 +140,7 @@ typedef enum ImagePickerType{
     newPost[@"location"] = self.location.text;
     newPost[@"content"] = self.content.text;
     newPost[@"photo"] = imageFile;
-//    newPost[@"author"] = [PFUser currentUser];
+    newPost[@"author"] = [PFUser currentUser];
     PFRelation* authorRelation = [newPost relationForKey:@"authorRelation"];
     [authorRelation addObject:[PFUser currentUser]];
     

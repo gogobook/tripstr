@@ -40,9 +40,6 @@
 {
     [self.view addSubview:self.tableView];
     self.navigationController.navigationBar.translucent = NO;
-    
-    
-    
 }
 
 - (void) setupConstraints

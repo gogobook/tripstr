@@ -55,6 +55,7 @@
                 [alert show];
             }
         } else if (user.isNew) {
+            NSLog(@"new user");
             NSDictionary* param = @{@"fields": @"id,name,picture,location,email,bio"};
             [FBRequestConnection startWithGraphPath:@"me"
                                          parameters:param
@@ -68,6 +69,7 @@
                                       }
                                   }];
         } else {
+            NSLog(@"user already exist");
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
@@ -76,20 +78,27 @@
 
 -(void) signupAction: (id) result
 {
+    NSLog(@"signUpAction: result %@",result);
     PFUser* user = [PFUser currentUser];
+    NSLog(@"prev_user: %@", user.username);
     user[@"fbID"] = result[@"id"];
     user.email = result[@"email"];
+    NSLog(@"useremail: %@",user.email);
     user[@"location"] = result[@"location"][@"name"];
     user[@"name"] = result[@"name"];
+    NSLog(@"user.name: %@",user[@"name"]);
     user[@"avatarURL"] = result[@"picture"][@"data"][@"url"];
     user[@"description"] = result[@"bio"];
+    NSLog(@"user: %@", user);
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@"inBlock");
         if (succeeded) {
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             NSLog(@"error: %@",error);
         }
     }];
+    NSLog(@"endOfSignUp");
 }
 
 #pragma mark- getter

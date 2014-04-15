@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 //@class PostModel;
 @protocol PostModelDelegate <NSObject>
@@ -24,7 +25,8 @@
 @property (nonatomic,strong) NSString* content;
 @property (nonatomic,strong) NSString* location;
 @property (nonatomic,strong) NSString* photoURLString;
-@property (nonatomic,strong) NSString* authorName;
+@property (nonatomic,strong) PFFile* photo;
+@property (nonatomic,strong) NSString* authorId;
 
 @property (nonatomic,strong) id <PostModelDelegate> delegate;
 

@@ -230,10 +230,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="M4u-MA-5T8"/>
+                    <connections>
+                        <segue destination="RJt-Qj-k4T" kind="push" identifier="profileToPostSegue" id="doH-Po-k9X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="311-tC-zXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932" y="209"/>
+            <point key="canvasLocation" x="1446" y="-548"/>
         </scene>
         <!--Post View Controller - Post-->
         <scene sceneID="dhY-u7-6wh">
@@ -391,6 +394,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nwa-Bs-ee2"/>
+        <segue reference="doH-Po-k9X"/>
     </inferredMetricsTieBreakers>
 </document>

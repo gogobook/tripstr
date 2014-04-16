@@ -25,6 +25,7 @@
 @property (nonatomic,strong) NSString* avatarUrlString;
 @property (nonatomic,strong) NSString* introduction;
 @property (nonatomic,strong) NSString* location;
+@property (nonatomic,strong) NSString* authorId;
 @property (nonatomic,strong) id<UserModelDelegate> delegate;
 
 -(void) fetchUserMe;

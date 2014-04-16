@@ -10,7 +10,10 @@
 #import "PostListTableView.h"
 #import "PostListCell.h"
 
-@interface ProfileViewController () <UITableViewDataSource,UITableViewDelegate>
+#import "PostModel.h"
+#import "PostViewController.h"
+
+@interface ProfileViewController () <UITableViewDataSource,UITableViewDelegate,PostModelDelegate>
 
 @property (nonatomic,strong) UIScrollView* scrollView;
 
@@ -21,6 +24,8 @@
 
 @property (nonatomic,strong) UITableView* tableView;
 
+@property (nonatomic,strong) PostModel* post;
+@property (nonatomic,strong) NSMutableArray* postArray;
 
 @end
 
@@ -31,37 +36,47 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSLog(@"ProfileVC: %@",self.author);
+    NSLog(@"ProfileVC: %@",self.author.authorId);
+    self.post = [[PostModel alloc] init];
+    self.post.delegate = self;
+    [self.post fetchPostListUser:self.author.authorId];
     [self addLayout];
 }
 
 -(void) addLayout
 {
-    [self.view addSubview:self.scrollView];
+//    [self.view addSubview:self.scrollView];
+//    
+//    [self.scrollView addSubview:self.authorPic];
+//    [self.scrollView addSubview:self.authorNameLabel];
+//    [self.scrollView addSubview:self.authorLocationLabel];
+//    [self.scrollView addSubview:self.authorIntroLabel];
+//    
+//    [self.scrollView addSubview:self.tableView];
     
-    [self.scrollView addSubview:self.authorPic];
-    [self.scrollView addSubview:self.authorNameLabel];
-    [self.scrollView addSubview:self.authorLocationLabel];
-    [self.scrollView addSubview:self.authorIntroLabel];
+    [self.view addSubview:self.authorPic];
+    [self.view addSubview:self.authorNameLabel];
+    [self.view addSubview:self.authorLocationLabel];
+    [self.view addSubview:self.authorIntroLabel];
     
-    [self.scrollView addSubview:self.tableView];
+    [self.view addSubview:self.tableView];
 }
 
 -(void) updateViewConstraints
 {
     [super updateViewConstraints];
-    [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
-    [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-    [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    
+//    [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+//    [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+//    [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+//    [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+//    
     [self.authorPic autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:4];
     [self.authorPic autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:6];
     [self.authorPic autoSetDimension:ALDimensionHeight toSize:70];
     [self.authorPic autoSetDimension:ALDimensionWidth toSize:70];
     
     [self.authorNameLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
-    [self.authorNameLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:7];
+    [self.authorNameLabel autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:7];
     [self.authorNameLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.authorPic withOffset:9];
 
     [self.authorLocationLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.authorNameLabel];
@@ -75,8 +90,10 @@
     [self.authorIntroLabel autoSetDimension:ALDimensionWidth toSize:308];
     
     [self.tableView autoSetDimension:ALDimensionWidth toSize:320];
+//    [self.tableView autoSetDimension:ALDimensionHeight toSize:275];
     [self.tableView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.authorIntroLabel withOffset:3];
-    //[self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [self.tableView autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.tableView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
 }
 
 
@@ -88,7 +105,8 @@
 {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initForAutoLayout];
-        _scrollView.backgroundColor = [UIColor clearColor];
+        _scrollView.backgroundColor = [UIColor redColor];
+        _scrollView.scrollEnabled = NO;
     }
     return _scrollView;
 }
@@ -111,6 +129,7 @@
         _authorNameLabel = [[UILabel alloc] initForAutoLayout];
         _authorNameLabel.text = self.author.name;
         _authorNameLabel.backgroundColor = [UIColor yellowColor];
+//        _authorNameLabel.preferredMaxLayoutWidth = 200;
     }
     return _authorNameLabel;
 }
@@ -141,12 +160,14 @@
 {
     NSLog(@"tableView called");
     if (!_tableView) {
-        NSLog(@"inside tableView if");
+
         _tableView = [[UITableView alloc] initForAutoLayout];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.scrollEnabled = NO;
+        _tableView.scrollEnabled = YES;
         _tableView.backgroundColor = [UIColor grayColor];
+                NSLog(@"inside tableView if %@",_tableView);
+        _tableView.bounces = NO;
     }
     return _tableView;
 }
@@ -155,18 +176,52 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"numberOf Rows called");
-    return 10;
+    return self.postArray.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(PostListCell *)tableView:(PostListTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileView"];
+    PostListCell* cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileView"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileView"];
+        cell = [[PostListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileView"];
     }
-    cell.textLabel.text = @"title";
+    PostModel* post = (PostModel*) self.postArray[indexPath.row];
+    cell.titleLabel.text = post.headline;
+    cell.locationLabel.text = post.location;
+    cell.contentLabel.text = post.content;
+    cell.postImageView.file = post.photo;
+    [cell.postImageView loadInBackground];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PostModel* post = self.postArray[indexPath.row];
+    [self performSegueWithIdentifier:@"profileToPostSegue" sender:post];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PostViewController* pvc = (PostViewController* )[segue destinationViewController];
+    PostModel* post = (PostModel*) sender;
+    pvc.postModel = post;
+}
+#pragma mark- postModelDelegate
+-(void)didFetchDataAll:(NSMutableArray *)postList
+{
+    self.postArray = postList;
+    [self.tableView reloadData];
+}
+
+-(void)failToFetchDataAll:(NSError *)error
+{
+    NSLog(@"eror: %@",error);
 }
 
 @end

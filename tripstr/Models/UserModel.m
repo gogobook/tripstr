@@ -32,7 +32,7 @@
             author.location = object[@"location"];
             author.name = object[@"name"];
             author.introduction = object[@"description"];
-
+            author.authorId = authorId;
             
             if ([self.delegate respondsToSelector:@selector(didFetchUser:)]) {
                 [self.delegate didFetchUser:author];

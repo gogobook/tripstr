@@ -32,5 +32,6 @@
 
 -(void) fetchPostListAll;
 -(void) fetchPostListMe;
+-(void) fetchPostListUser: (NSString*) authorId;
 
 @end

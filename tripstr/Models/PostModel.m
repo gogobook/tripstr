@@ -69,19 +69,17 @@
     NSMutableArray* postArray = @[].mutableCopy;
     PFQuery *postQuery = [PFQuery queryWithClassName:@"postData"];
     [postQuery whereKey:@"author" equalTo:[PFUser currentUser]];
-    
+    [postQuery includeKey:@"author"];
     // Run the query
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSLog(@"fetchPostListMe: %@",objects);
         if (!error) {
             [objects enumerateObjectsUsingBlock:^(PFObject* obj, NSUInteger idx, BOOL *stop) {
+//                PFUser* author = [obj objectForKey:@"user"];
+//                NSLog(@"%@",author.email);
                 PostModel* post = [PostModel postWithObjData:obj andObjId: obj.objectId];
 //                NSLog(@"%@",post.authorName);
                 [postArray addObject:post];
-                
-                
-                
-                
-                
             }];
             
             if ([self.delegate respondsToSelector:@selector(didFetchDataAll:)]) {

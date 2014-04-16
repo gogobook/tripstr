@@ -32,7 +32,7 @@
 	// Do any additional setup after loading the view.
     [self setLayout];
     [self setupConstraints];
-    [self.post fetchPostListAll];
+    [self.post fetchPostListMe];
 
 }
 
@@ -40,6 +40,7 @@
 {
     [self.view addSubview:self.tableView];
     self.navigationController.navigationBar.translucent = NO;
+    self.navigationItem.title = @"My Posts";
 }
 
 - (void) setupConstraints

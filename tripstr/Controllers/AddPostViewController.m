@@ -141,6 +141,7 @@ typedef enum ImagePickerType{
     newPost[@"content"] = self.content.text;
     newPost[@"photo"] = imageFile;
     newPost[@"author"] = [PFUser currentUser];
+    newPost[@"authorId"] = [[PFUser currentUser]objectId];
     PFRelation* authorRelation = [newPost relationForKey:@"authorRelation"];
     [authorRelation addObject:[PFUser currentUser]];
     

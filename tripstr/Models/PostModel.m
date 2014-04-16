@@ -20,6 +20,7 @@
     self.location = data[@"location"];
     self.photoURLString = data[@"photoURLString"];
     self.authorId = data[@"authorId"];
+    self.photo = data[@"photo"];
     
 //    PFUser* author = data[@"author"];
 //    [author fetchIfNeeded];
@@ -39,7 +40,7 @@
     PFQuery* query = [PFQuery queryWithClassName:@"postData"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
-            
+           
             if ([self.delegate respondsToSelector:@selector(failToFetchDataAll:)]) {
                 [self.delegate failToFetchDataAll:error];
             } else {
@@ -47,7 +48,6 @@
             }
             
         } else {
-            
             [objects enumerateObjectsUsingBlock:^(PFObject* obj, NSUInteger idx, BOOL *stop) {
                 PostModel* post = [PostModel postWithObjData:obj andObjId: obj.objectId];
                 [postArray addObject:post];

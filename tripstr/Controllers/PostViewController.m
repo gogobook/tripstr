@@ -19,7 +19,8 @@
 
 @property (nonatomic,strong) UILabel* headline;
 @property (nonatomic,strong) UILabel* location;
-@property (nonatomic,strong) UIImageView* photo;
+//@property (nonatomic,strong) UIImageView* photo;
+@property (nonatomic,strong) PFImageView* photo;
 @property (nonatomic,strong) UILabel* content;
 
 @property (nonatomic,strong) UIImageView* authorPic;
@@ -132,12 +133,23 @@
     return _location;
 }
 
+//-(UIImageView *)photo
+//{
+//    if (!_photo) {
+//        _photo = [[UIImageView alloc] initForAutoLayout];
+//        _photo.backgroundColor = [UIColor grayColor];
+//        [_photo setImageWithURL:[NSURL URLWithString:self.postModel.photoURLString]];
+//    }
+//    return _photo;
+//}
+
 -(UIImageView *)photo
 {
     if (!_photo) {
-        _photo = [[UIImageView alloc] initForAutoLayout];
+        _photo = [[PFImageView alloc] initForAutoLayout];
         _photo.backgroundColor = [UIColor grayColor];
-        [_photo setImageWithURL:[NSURL URLWithString:self.postModel.photoURLString]];
+        _photo.file = (PFFile*) self.postModel.photo;
+        [_photo loadInBackground];
     }
     return _photo;
 }

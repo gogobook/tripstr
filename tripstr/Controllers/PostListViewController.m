@@ -98,9 +98,20 @@
         cell = [[PostListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
     PostModel* post = self.postList[indexPath.row];
-    cell.textLabel.text = post.headline;
-    cell.detailTextLabel.text = post.content;
+//    cell.textLabel.text = post.headline;
+//    cell.detailTextLabel.text = post.content;
+    cell.titleLabel.text = post.headline;
+    cell.locationLabel.text = post.location;
+    cell.contentLabel.text = post.content;
+    cell.postImageView.file = post.photo;
+    [cell.postImageView loadInBackground];
+//    [cell.postImageView setImageWithURL:[NSURL URLWithString:post.photoURLString]];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -23,7 +23,7 @@
 {
     self = [super init];
     if (self) {
-        // Initialization code
+        self.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
     return self;
 }

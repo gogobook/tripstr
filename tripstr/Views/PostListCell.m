@@ -14,16 +14,94 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        [self setLayout];
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+-(void) setLayout
 {
-    [super setSelected:selected animated:animated];
+    [self addSubview:self.postImageView];
+    [self addSubview:self.titleLabel];
+    [self addSubview:self.locationLabel];
+    [self addSubview:self.contentLabel];
+}
 
-    // Configure the view for the selected state
+-(void) updateConstraints
+{
+    [super updateConstraints];
+    
+    [self.postImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:6];
+    [self.postImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:6];
+    [self.postImageView autoSetDimension:ALDimensionHeight toSize:52];
+    [self.postImageView autoSetDimension:ALDimensionWidth toSize:52];
+    
+    [self.titleLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.postImageView];
+    [self.titleLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.postImageView withOffset:5];
+    [self.titleLabel autoSetDimension:ALDimensionWidth toSize:150];
+    
+    [self.locationLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.postImageView];
+    [self.locationLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.titleLabel];
+    [self.locationLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:6];
+    
+    [self.contentLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.titleLabel withOffset:5];
+    [self.contentLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.titleLabel];
+    [self.contentLabel autoSetDimension:ALDimensionWidth toSize:251];
+    
+}
+
+#pragma mark- getters
+
+//-(UIImageView *)postImageView
+//{
+//    if (!_postImageView) {
+//        _postImageView = [[UIImageView alloc] initForAutoLayout];
+//        _postImageView.layer.cornerRadius = 5;
+//        _postImageView.clipsToBounds = YES;
+//        _postImageView.backgroundColor = [UIColor grayColor];
+//    }
+//    return _postImageView;
+//}
+
+-(PFImageView *)postImageView
+{
+    if (!_postImageView) {
+        _postImageView = [[PFImageView alloc] initForAutoLayout];
+        _postImageView.layer.cornerRadius = 5;
+        _postImageView.clipsToBounds = YES;
+        _postImageView.backgroundColor = [UIColor grayColor];
+    }
+    return _postImageView;
+}
+
+-(UILabel *)titleLabel
+{
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] initForAutoLayout];
+        _titleLabel.backgroundColor = [UIColor redColor];
+    }
+    return _titleLabel;
+}
+
+-(UILabel *)locationLabel
+{
+    if (!_locationLabel) {
+        _locationLabel = [[UILabel alloc] initForAutoLayout];
+        _locationLabel.backgroundColor = [UIColor yellowColor];
+    }
+    return _locationLabel;
+}
+
+-(UILabel *)contentLabel
+{
+    if (!_contentLabel) {
+        _contentLabel = [[UILabel alloc] initForAutoLayout];
+        _contentLabel.font = [UIFont systemFontOfSize:10];
+        _contentLabel.numberOfLines = 2;
+        _contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _contentLabel.backgroundColor = [UIColor greenColor];
+    }
+    return _contentLabel;
 }
 
 @end

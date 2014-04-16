@@ -10,4 +10,9 @@
 
 @interface PostListCell : UITableViewCell
 
+@property (nonatomic,strong) PFImageView* postImageView;
+@property (nonatomic,strong) UILabel* titleLabel;
+@property (nonatomic,strong) UILabel* locationLabel;
+@property (nonatomic,strong) UILabel* contentLabel;
+
 @end

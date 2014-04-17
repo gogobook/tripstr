@@ -15,6 +15,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
     }
     return self;
 }
@@ -31,9 +32,21 @@
             [self setupUserConstraints];
             break;
         case MenuTypeIndex:
-            NSLog(@"MenuTypeIndex Called");
-            [self addSubview:self.indexLabel];
-            [self.indexLabel autoCenterInSuperview];
+//            [self addSubview:self.indexLabel];
+//            [self.indexLabel autoCenterInSuperview];
+            
+            [self addSubview:self.cellView];
+            [self.cellView addSubview:self.indexLabel];
+            
+            [self.cellView autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:0];
+            [self.cellView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+            [self.cellView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+            [self.cellView autoSetDimension:ALDimensionWidth toSize:270];
+            [self.cellView autoSetDimension:ALDimensionHeight toSize:50];
+            
+            [self.indexLabel autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+            [self.indexLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
+            
             break;
         default:
             break;
@@ -83,10 +96,17 @@
 -(UILabel *)indexLabel
 {
     if (!_indexLabel) {
-        NSLog(@"indexLabel");
         _indexLabel = [[UILabel alloc] initForAutoLayout];
-        _indexLabel.backgroundColor = [UIColor redColor];
     }
     return _indexLabel;
 }
+
+-(UIView *)cellView
+{
+    if (!_cellView) {
+        _cellView = [[UIView alloc] initForAutoLayout];
+    }
+    return _cellView;
+}
+
 @end

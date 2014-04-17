@@ -101,8 +101,9 @@ typedef enum LeftMenuItem {
         cell.locationLabel.text = [PFUser currentUser][@"location"];//@"Taipei Taiwan";
         [cell.avatarImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large",[PFUser currentUser][@"fbID"]]]];
     } else {
-    cell.textLabel.text = self.menuList[indexPath.row-1];
-//        cell.indexLabel.text = self.menuList[indexPath.row-1];
+        cell.menuType = MenuTypeIndex;
+        cell.indexLabel.text = self.menuList[indexPath.row-1];
+        //    cell.textLabel.text = self.menuList[indexPath.row-1];
     }
     return cell;
 }

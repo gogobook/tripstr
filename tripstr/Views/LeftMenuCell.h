@@ -22,5 +22,6 @@ typedef enum MenuType
 
 @property (nonatomic,strong) UILabel* indexLabel;
 
+@property (nonatomic,strong) UIView* cellView;
 
 @end

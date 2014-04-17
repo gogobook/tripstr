@@ -31,6 +31,7 @@
             [self setupUserConstraints];
             break;
         case MenuTypeIndex:
+            NSLog(@"MenuTypeIndex Called");
             [self addSubview:self.indexLabel];
             [self.indexLabel autoCenterInSuperview];
             break;

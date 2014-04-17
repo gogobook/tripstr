@@ -42,7 +42,8 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    
+    //BarButtonItem tint color
+    self.window.tintColor = [UIColor grayColor];
 
     return YES;
 }

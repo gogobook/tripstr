@@ -70,6 +70,7 @@
         _postImageView.layer.cornerRadius = 5;
         _postImageView.clipsToBounds = YES;
         _postImageView.backgroundColor = [UIColor grayColor];
+//        _postImageView.layer.borderColor = [UIColor blackColor];
     }
     return _postImageView;
 }

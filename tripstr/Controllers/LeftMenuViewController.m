@@ -89,10 +89,10 @@ typedef enum LeftMenuItem {
 -(LeftMenuCell *)tableView:(LeftMenuTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* cellID = @"LeftMenuCell";
-    LeftMenuCell* cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell) {
-        cell = [[LeftMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-    }
+//    LeftMenuCell* cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//    if (!cell) {
+        LeftMenuCell* cell = [[LeftMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+//    }
     
     if (indexPath.row == 0) {
         NSLog(@"Current User: %@",[PFUser currentUser]);
@@ -102,7 +102,7 @@ typedef enum LeftMenuItem {
         [cell.avatarImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large",[PFUser currentUser][@"fbID"]]]];
     } else {
     cell.textLabel.text = self.menuList[indexPath.row-1];
-        //cell.indexLabel.text = self.menuList[indexPath.row-1];
+//        cell.indexLabel.text = self.menuList[indexPath.row-1];
     }
     return cell;
 }

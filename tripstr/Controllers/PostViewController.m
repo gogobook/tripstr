@@ -172,10 +172,12 @@
     if (!_toProfileButton) {
         _toProfileButton = [[UIButton alloc] initForAutoLayout];
         [_toProfileButton setTitle:@"Go to Author Page" forState:UIControlStateNormal];
-        [_toProfileButton setBackgroundColor:[UIColor grayColor]];
+        [_toProfileButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _toProfileButton.layer.cornerRadius = 5;
         _toProfileButton.clipsToBounds = YES;
         [_toProfileButton addTarget:self action:@selector(toProfileButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+        _toProfileButton.layer.borderColor = [UIColor blackColor].CGColor;
+        _toProfileButton.layer.borderWidth = 1;
     }
     return  _toProfileButton;
 }

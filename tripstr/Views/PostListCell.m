@@ -70,7 +70,8 @@
         _postImageView.layer.cornerRadius = 5;
         _postImageView.clipsToBounds = YES;
         _postImageView.backgroundColor = [UIColor grayColor];
-//        _postImageView.layer.borderColor = [UIColor blackColor];
+        _postImageView.layer.borderColor = [UIColor blackColor].CGColor;
+        _postImageView.layer.borderWidth = 0.3;
     }
     return _postImageView;
 }
@@ -80,6 +81,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initForAutoLayout];
         _titleLabel.backgroundColor = [UIColor redColor];
+        _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:18];
     }
     return _titleLabel;
 }

@@ -118,13 +118,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PostModel* post = self.postList[indexPath.row];
-    [self performSegueWithIdentifier:@"PostListToPostSegue" sender:post];
+    [self performSegueWithIdentifier:@"postListToPostSegue" sender:post];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"PostListToPostSegue"]) {
+    if ([segue.identifier isEqualToString:@"postListToPostSegue"]) {
         PostViewController* pvc = (PostViewController*) [segue destinationViewController];
         pvc.postModel = (PostModel*)sender;
     }

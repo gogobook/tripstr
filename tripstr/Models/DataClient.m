@@ -56,20 +56,17 @@
                                           options:NSDataReadingMappedIfSafe error:nil];
     NSError* error = nil;
     id jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    NSLog(@"jsonData: \n %@",jsonData);
     if (!error) {
         NSMutableArray* returnArray = @[].mutableCopy;
         [jsonData enumerateObjectsUsingBlock:^(NSDictionary* data, NSUInteger idx, BOOL *stop) {
             
-//            SpeakerObject* speaker = [[SpeakerObject alloc] initWithJSONdata:data];
-//            NSLog(@"%ld",(long)speaker.speakerID);
-//            [returnArray addObject:speaker];
+            ConnectionsObject* user = [[ConnectionsObject alloc] initWithJSONdata:data];
+            [returnArray addObject:user];
         }];
         
-        //Call block (check if block exists)
-//        if (complete) {
-//            complete(returnArray.copy);//因為丟回去接的是個普通的陣列
-//        }
+        if (complete) {
+            complete(returnArray.copy);//因為丟回去接的是個普通的陣列
+        }
         
     } else {
         

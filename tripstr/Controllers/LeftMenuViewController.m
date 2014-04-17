@@ -13,6 +13,7 @@
 #import "BrowseViewController.h"
 #import "TravelListViewController.h"
 #import "PostListViewController.h"
+#import "ConnectionViewController.h"
 
 #import <UIViewController+JASidePanel.h>
 #import <JASidePanelController.h>
@@ -21,7 +22,7 @@
 #import <Parse/Parse.h>
 
 typedef enum LeftMenuItem {
-    LeftMenuLogout,LeftMenuItemBrowse,LeftMenuItemTravels,LeftMenuItemPosts
+    LeftMenuLogout,LeftMenuItemBrowse,LeftMenuItemTravels,LeftMenuItemPosts,LeftMenuConnections
 }LeftMenuItem;
 
 @interface LeftMenuViewController () <UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
@@ -75,7 +76,7 @@ typedef enum LeftMenuItem {
 -(NSArray *)menuList
 {
     if (!_menuList) {
-        _menuList = @[@"Browse",@"Travel Plans",@"Posts"];
+        _menuList = @[@"Browse",@"Travel Plans",@"My Posts",@"Connections"];
     }
     return _menuList;
 }
@@ -139,6 +140,14 @@ typedef enum LeftMenuItem {
             NSLog(@"Posts tapped");
             PostListViewController* plvc = [self.storyboard instantiateViewControllerWithIdentifier:@"plvc"];
             self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:plvc];
+            break;
+        }
+        case LeftMenuConnections:
+        {
+            NSLog(@"Connections tapped");
+            ConnectionViewController* cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"cvc"];
+            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:cvc];
+            
             break;
         }
         case LeftMenuLogout:

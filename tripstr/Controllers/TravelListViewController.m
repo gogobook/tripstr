@@ -9,29 +9,30 @@
 #import "TravelListViewController.h"
 #import "TravelListTableView.h"
 #import "TravelListCell.h"
-#import "TravelPlanModel.h"
+#import "TravelPlanObject.h"
+
+#import "DataClient.h"
 
 @interface TravelListViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) TravelListTableView* tableView;
+@property (nonatomic,strong) DataClient* dataClient;
+
+@property (nonatomic,strong) NSArray* travelPlanList;
 
 @end
 
 @implementation TravelListViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self.dataClient parseFromTravelPlanJSONWithComplete:^(NSArray *returnArray) {
+        self.travelPlanList = returnArray;
+    } andFail:^(NSError *error) {
+        NSLog(@"error: %@",error);
+    }];
+    
     [self.view addSubview:self.tableView];
 }
 
@@ -39,6 +40,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark- setter
+-(void)setTravelPlanList:(NSArray *)travelPlanList
+{
+    _travelPlanList = travelPlanList;
+    [self.tableView reloadData];
 }
 
 #pragma mark- getter
@@ -52,10 +60,18 @@
     return _tableView;
 }
 
+-(DataClient *)dataClient
+{
+    if (!_dataClient) {
+        _dataClient = [[DataClient alloc] init];
+    }
+    return _dataClient;
+}
+
 #pragma mark- tableView DataSource
 -(NSInteger)tableView:(TravelListTableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.travelPlanList.count;
 }
 
 -(TravelListCell *)tableView:(TravelListTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,15 +81,18 @@
     if (!cell) {
         cell = [[TravelListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
-    cell.textLabel.text = @"Title";
-    cell.detailTextLabel.text = @"detail...";
+    TravelPlanObject* travelPlan = (TravelPlanObject*) self.travelPlanList[indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:travelPlan.cityImagePath];
+    cell.textLabel.text = travelPlan.title;
+    cell.detailTextLabel.text = travelPlan.departureDate;
+    
     return cell;
 }
 
 #pragma mark - tableView Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TravelPlanModel* travelPlan = [[TravelPlanModel alloc] init];
+    TravelPlanObject* travelPlan = [[TravelPlanObject alloc] init];
     [self performSegueWithIdentifier:@"TravelListToTravelPlanSegue" sender:travelPlan];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -70,7 +70,7 @@
 //    [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
 //    [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
 //    
-    [self.authorPic autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:4];
+    [self.authorPic autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:6];
     [self.authorPic autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:6];
     [self.authorPic autoSetDimension:ALDimensionHeight toSize:70];
     [self.authorPic autoSetDimension:ALDimensionWidth toSize:70];
@@ -83,7 +83,7 @@
     [self.authorLocationLabel autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.authorNameLabel];
     [self.authorLocationLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.authorNameLabel withOffset:5];
     
-    [self.authorIntroLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.authorPic withOffset:8];
+    [self.authorIntroLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.authorPic withOffset:6];
     [self.authorIntroLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.authorPic];
     //用右邊拉開的方式無法成功
 //    [self.authorIntroLabel autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.scrollView withOffset:7];
@@ -149,6 +149,7 @@
     if (!_authorIntroLabel) {
         _authorIntroLabel = [[UILabel alloc] initForAutoLayout];
         _authorIntroLabel.text = self.author.introduction;
+        _authorIntroLabel.font = [UIFont systemFontOfSize:12];
         _authorIntroLabel.numberOfLines = 0;
         _authorIntroLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _authorIntroLabel.backgroundColor = [UIColor orangeColor];

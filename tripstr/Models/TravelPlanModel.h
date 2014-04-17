@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface TravelPlanModel : NSObject
+
+
+
 
 @end

@@ -96,7 +96,7 @@
 {
     if (!_contentLabel) {
         _contentLabel = [[UILabel alloc] initForAutoLayout];
-        _contentLabel.font = [UIFont systemFontOfSize:10];
+        _contentLabel.font = [UIFont systemFontOfSize:12];
         _contentLabel.numberOfLines = 2;
         _contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _contentLabel.backgroundColor = [UIColor greenColor];

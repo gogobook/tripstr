@@ -20,5 +20,7 @@ typedef enum MenuType
 @property (nonatomic,strong) UILabel* nameLabel;
 @property (nonatomic,strong) UILabel* locationLabel;
 
+@property (nonatomic,strong) UILabel* indexLabel;
+
 
 @end

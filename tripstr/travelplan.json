@@ -1,0 +1,14 @@
+[
+	{
+		"cityImagePath":"taipei.png",
+		"title":"Taipei Lovely Trip",
+		"arrivalDate":"2014/01/03",
+		"departureDate":"2014/01/07"
+	},
+	{
+		"cityImagePath":"",
+		"title":"",
+		"arrivalDate":"",
+		"departureDate":""
+	}
+]

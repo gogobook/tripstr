@@ -1,0 +1,14 @@
+[
+	{
+		"userImagePath":"taipei.png",
+		"userName":"Emmy Watson",
+		"userMessage":"Hi there, handsome!",
+		"userStatus":"Confirmed"
+	},
+	{
+		"userImagePath":"<Data Goes In Here>",
+		"userName":"<Data Goes In Here>",
+		"userMessage":"<Data Goes In Here>",
+		"userStatus":"<Data Goes In Here>"
+	}
+]

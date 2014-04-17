@@ -28,17 +28,18 @@
             [self addSubview:self.avatarImageView];
             [self addSubview:self.nameLabel];
             [self addSubview:self.locationLabel];
-            [self setupConstraints];
+            [self setupUserConstraints];
             break;
         case MenuTypeIndex:
-            //
+            [self addSubview:self.indexLabel];
+            [self.indexLabel autoCenterInSuperview];
             break;
         default:
             break;
     }
 }
 
--(void) setupConstraints
+-(void) setupUserConstraints
 {
     NSDictionary* views = @{@"avatar":self.avatarImageView,@"name":self.nameLabel,@"location":self.locationLabel};
     [self addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[avatar(100)]-10-[name(30)]-2-[location(30)]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
@@ -78,4 +79,13 @@
     return _locationLabel;
 }
 
+-(UILabel *)indexLabel
+{
+    if (!_indexLabel) {
+        NSLog(@"indexLabel");
+        _indexLabel = [[UILabel alloc] initForAutoLayout];
+        _indexLabel.backgroundColor = [UIColor redColor];
+    }
+    return _indexLabel;
+}
 @end

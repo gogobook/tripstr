@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6D6183452CF6448E880D6919 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79BF636E65436EBBD43AA2 /* libPods.a */; };
+		AA17A87618FF700D00A0742B /* TravelPlanObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AA17A87518FF700D00A0742B /* TravelPlanObject.m */; };
+		AA17A87918FF703200A0742B /* ConnectionsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AA17A87818FF703200A0742B /* ConnectionsObject.m */; };
+		AA17A87C18FF710A00A0742B /* DataClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AA17A87B18FF710A00A0742B /* DataClient.m */; };
+		AA17A87F18FF7CD300A0742B /* travelplan.json in Resources */ = {isa = PBXBuildFile; fileRef = AA17A87E18FF7CD300A0742B /* travelplan.json */; };
+		AA17A88118FF889900A0742B /* connection.json in Resources */ = {isa = PBXBuildFile; fileRef = AA17A88018FF889900A0742B /* connection.json */; };
 		AA3DFDCF18F798F80027A52D /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3DFDCE18F798F80027A52D /* UserModel.m */; };
 		AA61B83F18D6DD8500A77443 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA61B83E18D6DD8500A77443 /* Foundation.framework */; };
 		AA61B84118D6DD8500A77443 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA61B84018D6DD8500A77443 /* CoreGraphics.framework */; };
@@ -38,7 +43,6 @@
 		AA6543F418D7E5D000D3EC56 /* PostListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6543F318D7E5D000D3EC56 /* PostListCell.m */; };
 		AA6543F718D80EB700D3EC56 /* TravelListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6543F618D80EB700D3EC56 /* TravelListTableView.m */; };
 		AA6543FA18D80EDF00D3EC56 /* TravelListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6543F918D80EDF00D3EC56 /* TravelListCell.m */; };
-		AA6543FD18D80F1C00D3EC56 /* TravelPlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6543FC18D80F1C00D3EC56 /* TravelPlanModel.m */; };
 		AA65440018D87D0000D3EC56 /* LeftMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6543FF18D87D0000D3EC56 /* LeftMenuTableView.m */; };
 		AA65440318D87D1E00D3EC56 /* LeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA65440218D87D1E00D3EC56 /* LeftMenuCell.m */; };
 /* End PBXBuildFile section */
@@ -54,6 +58,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA17A87418FF700D00A0742B /* TravelPlanObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelPlanObject.h; path = Models/TravelPlanObject.h; sourceTree = "<group>"; };
+		AA17A87518FF700D00A0742B /* TravelPlanObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TravelPlanObject.m; path = Models/TravelPlanObject.m; sourceTree = "<group>"; };
+		AA17A87718FF703200A0742B /* ConnectionsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionsObject.h; path = Models/ConnectionsObject.h; sourceTree = "<group>"; };
+		AA17A87818FF703200A0742B /* ConnectionsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionsObject.m; path = Models/ConnectionsObject.m; sourceTree = "<group>"; };
+		AA17A87A18FF710A00A0742B /* DataClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataClient.h; path = Models/DataClient.h; sourceTree = "<group>"; };
+		AA17A87B18FF710A00A0742B /* DataClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataClient.m; path = Models/DataClient.m; sourceTree = "<group>"; };
+		AA17A87E18FF7CD300A0742B /* travelplan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = travelplan.json; sourceTree = "<group>"; };
+		AA17A88018FF889900A0742B /* connection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = connection.json; sourceTree = "<group>"; };
 		AA3DFDCD18F798F80027A52D /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = Models/UserModel.h; sourceTree = "<group>"; };
 		AA3DFDCE18F798F80027A52D /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = Models/UserModel.m; sourceTree = "<group>"; };
 		AA61B83B18D6DD8500A77443 /* tripstr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tripstr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,8 +117,6 @@
 		AA6543F618D80EB700D3EC56 /* TravelListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TravelListTableView.m; path = Views/TravelListTableView.m; sourceTree = "<group>"; };
 		AA6543F818D80EDF00D3EC56 /* TravelListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelListCell.h; path = Views/TravelListCell.h; sourceTree = "<group>"; };
 		AA6543F918D80EDF00D3EC56 /* TravelListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TravelListCell.m; path = Views/TravelListCell.m; sourceTree = "<group>"; };
-		AA6543FB18D80F1C00D3EC56 /* TravelPlanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelPlanModel.h; path = Models/TravelPlanModel.h; sourceTree = "<group>"; };
-		AA6543FC18D80F1C00D3EC56 /* TravelPlanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TravelPlanModel.m; path = Models/TravelPlanModel.m; sourceTree = "<group>"; };
 		AA6543FE18D87D0000D3EC56 /* LeftMenuTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuTableView.h; path = Views/LeftMenuTableView.h; sourceTree = "<group>"; };
 		AA6543FF18D87D0000D3EC56 /* LeftMenuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuTableView.m; path = Views/LeftMenuTableView.m; sourceTree = "<group>"; };
 		AA65440118D87D1E00D3EC56 /* LeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuCell.h; path = Views/LeftMenuCell.h; sourceTree = "<group>"; };
@@ -140,6 +150,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA17A87D18FF7CBD00A0742B /* DataJSON */ = {
+			isa = PBXGroup;
+			children = (
+				AA17A88018FF889900A0742B /* connection.json */,
+				AA17A87E18FF7CD300A0742B /* travelplan.json */,
+			);
+			name = DataJSON;
+			sourceTree = "<group>";
+		};
 		AA61B83218D6DD8500A77443 = {
 			isa = PBXGroup;
 			children = (
@@ -268,12 +287,17 @@
 		AA61B87718D6E4D600A77443 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AA17A87D18FF7CBD00A0742B /* DataJSON */,
 				AA6543EC18D7E32D00D3EC56 /* PostModel.h */,
 				AA6543ED18D7E32D00D3EC56 /* PostModel.m */,
-				AA6543FB18D80F1C00D3EC56 /* TravelPlanModel.h */,
-				AA6543FC18D80F1C00D3EC56 /* TravelPlanModel.m */,
 				AA3DFDCD18F798F80027A52D /* UserModel.h */,
 				AA3DFDCE18F798F80027A52D /* UserModel.m */,
+				AA17A87418FF700D00A0742B /* TravelPlanObject.h */,
+				AA17A87518FF700D00A0742B /* TravelPlanObject.m */,
+				AA17A87718FF703200A0742B /* ConnectionsObject.h */,
+				AA17A87818FF703200A0742B /* ConnectionsObject.m */,
+				AA17A87A18FF710A00A0742B /* DataClient.h */,
+				AA17A87B18FF710A00A0742B /* DataClient.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -371,6 +395,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA17A88118FF889900A0742B /* connection.json in Resources */,
+				AA17A87F18FF7CD300A0742B /* travelplan.json in Resources */,
 				AA61B85718D6DD8500A77443 /* Images.xcassets in Resources */,
 				AA61B84918D6DD8500A77443 /* InfoPlist.strings in Resources */,
 				AA61B85218D6DD8500A77443 /* Main.storyboard in Resources */,
@@ -426,12 +452,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA61B88518D6EB2900A77443 /* TravelListViewController.m in Sources */,
+				AA17A87C18FF710A00A0742B /* DataClient.m in Sources */,
 				AA65440318D87D1E00D3EC56 /* LeftMenuCell.m in Sources */,
 				AA61B87F18D6EAD700A77443 /* PostViewController.m in Sources */,
 				AA61B88B18D6EB9900A77443 /* AddTravelViewController.m in Sources */,
+				AA17A87618FF700D00A0742B /* TravelPlanObject.m in Sources */,
 				AA6543F718D80EB700D3EC56 /* TravelListTableView.m in Sources */,
 				AA61B84F18D6DD8500A77443 /* AppDelegate.m in Sources */,
-				AA6543FD18D80F1C00D3EC56 /* TravelPlanModel.m in Sources */,
+				AA17A87918FF703200A0742B /* ConnectionsObject.m in Sources */,
 				AA61B89118D6EBCB00A77443 /* AddPostViewController.m in Sources */,
 				AA61B87C18D6E5AD00A77443 /* BrowseViewController.m in Sources */,
 				AA61B84B18D6DD8500A77443 /* main.m in Sources */,

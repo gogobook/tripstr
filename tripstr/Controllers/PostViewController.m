@@ -120,6 +120,8 @@
         _headline.numberOfLines = 2;
         _headline.lineBreakMode = NSLineBreakByWordWrapping;
         _headline.text = self.postModel.headline;
+//        _headline.font = [UIFont boldSystemFontOfSize:36];
+        _headline.font = [UIFont fontWithName:@"Helvetica Neue Light" size:36];
     }
     return _headline;
 }
@@ -203,6 +205,7 @@
     if (!_authorNameLabel) {
         _authorNameLabel = [[UILabel alloc] initForAutoLayout];
         _authorNameLabel.text = self.author.name;
+//        _authorNameLabel.font = [UIFont systemFontOfSize:36];
     }
     return _authorNameLabel;
 }
@@ -212,6 +215,7 @@
     if (!_authorlocationLabel) {
         _authorlocationLabel = [[UILabel alloc] initForAutoLayout];
         _authorlocationLabel.text = self.author.location;
+//        _authorlocationLabel.font = [UIFont systemFontOfSize:36];
     }
     return _authorlocationLabel;
 }

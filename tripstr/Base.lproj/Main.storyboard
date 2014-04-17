@@ -64,34 +64,6 @@
             </objects>
             <point key="canvasLocation" x="1025" y="1687"/>
         </scene>
-        <!--Post List View Controller - Posts List-->
-        <scene sceneID="fc4-fR-w8D">
-            <objects>
-                <viewController storyboardIdentifier="plvc" id="f9G-k8-13u" customClass="PostListViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5RJ-uh-wy1"/>
-                        <viewControllerLayoutGuide type="bottom" id="6dv-7u-xcF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nt3-sP-XW9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Posts List" id="cVl-dM-PK2">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="aIX-FW-H4V">
-                            <connections>
-                                <segue destination="dQD-MR-0Ow" kind="modal" id="5yl-Ek-VmS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="RJt-Qj-k4T" kind="push" identifier="PostListToPostSegue" id="nwa-Bs-ee2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3FA-6a-2f1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1031" y="824"/>
-        </scene>
         <!--Add Post View Controller-->
         <scene sceneID="Sk4-qW-jMr">
             <objects>
@@ -150,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16C-2W-svD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1926" y="824"/>
+            <point key="canvasLocation" x="1948" y="832"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="arW-Ep-8ne">
@@ -170,6 +142,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmq-Bm-FV6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="114" y="824"/>
+        </scene>
+        <!--Post List View Controller-->
+        <scene sceneID="gym-9k-1f3">
+            <objects>
+                <viewController storyboardIdentifier="plvc" id="DmL-db-87c" customClass="PostListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q1h-YA-Ing"/>
+                        <viewControllerLayoutGuide type="bottom" id="fIJ-h8-t03"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AsX-6r-Inx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uEQ-lx-Jyj">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Msf-IK-wdp">
+                            <connections>
+                                <segue destination="dQD-MR-0Ow" kind="modal" id="ucv-vH-4NJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="RJt-Qj-k4T" kind="push" identifier="postListToPostSegue" id="d4k-FR-tbf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vKv-lZ-AqQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1092" y="841"/>
         </scene>
         <!--Add Travel View Controller - Add a Travel Plan-->
         <scene sceneID="6dc-9d-m3v">
@@ -316,24 +316,6 @@
             <point key="canvasLocation" x="114" y="1687"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="kxR-dd-5SP">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kb5-cX-OFY" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D6X-C1-xeP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="f9G-k8-13u" kind="relationship" relationship="rootViewController" id="sRz-Ls-8Ex"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oXy-bY-Vmj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="665" y="824"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="H2N-mz-COW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="57g-C9-ziW" sceneMemberID="viewController">
@@ -367,7 +349,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWv-Yb-FXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1563" y="824"/>
+            <point key="canvasLocation" x="1561" y="824"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nbz-KV-TN4">
@@ -387,6 +369,24 @@
             </objects>
             <point key="canvasLocation" x="665" y="209"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wdd-8i-RNv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vuk-cu-rMa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="47k-DF-ycU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DmL-db-87c" kind="relationship" relationship="rootViewController" id="AOc-ws-hjl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cfv-0h-KPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="658" y="841"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -394,6 +394,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="doH-Po-k9X"/>
+        <segue reference="d4k-FR-tbf"/>
     </inferredMetricsTieBreakers>
 </document>

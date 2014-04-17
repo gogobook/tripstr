@@ -42,6 +42,11 @@
     
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"heart"]]];
+    //
+    /*
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow"]]];
+    */
+    //
     [self setLayout];
     
     [self.author fetchUserWithUserId:self.postModel.authorId];

@@ -119,7 +119,7 @@ typedef enum ImagePickerType{
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    self.selectedImage = info[@"UIImagePickerControllerOriginalImage"];
+    self.selectedImage = info[@"UIImagePickerControllerEditedImage"];
     [self.addPhotoButton setBackgroundImage:self.selectedImage forState:UIControlStateNormal];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }

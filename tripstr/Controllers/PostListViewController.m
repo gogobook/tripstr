@@ -36,6 +36,12 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.tableView reloadData];
+}
+
 -(void) setLayout
 {
     [self.view addSubview:self.tableView];

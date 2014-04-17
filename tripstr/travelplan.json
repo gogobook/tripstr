@@ -2,13 +2,13 @@
 	{
 		"cityImagePath":"taipei.png",
 		"title":"Taipei Lovely Trip",
-		"arrivalDate":"2014/01/03",
-		"departureDate":"2014/01/07"
+		"cityName":"Taipei, Taiwan",
+		"content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
 	},
 	{
-		"cityImagePath":"",
-		"title":"",
-		"arrivalDate":"",
-		"departureDate":""
+		"cityImagePath":"<image goes here>",
+		"title":"<travel plan name goes here>",
+		"cityName":"<city name goes here>",
+		"content":"<description goes here>"
 	}
 ]

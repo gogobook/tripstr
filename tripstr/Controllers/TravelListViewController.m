@@ -56,6 +56,7 @@
         _tableView = [[TravelListTableView alloc] initWithFrame:CGRectMake(0, 60, 320, 400)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
     return _tableView;
 }
@@ -82,9 +83,10 @@
         cell = [[TravelListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
     TravelPlanObject* travelPlan = (TravelPlanObject*) self.travelPlanList[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:travelPlan.cityImagePath];
-    cell.textLabel.text = travelPlan.title;
-    cell.detailTextLabel.text = travelPlan.departureDate;
+    cell.cityImageView.image = [UIImage imageNamed:travelPlan.cityImagePath];
+    cell.titleLabel.text = travelPlan.title;
+    cell.cityNameLabel.text = travelPlan.cityName;
+    cell.contentLabel.text = travelPlan.content;
     
     return cell;
 }
@@ -100,6 +102,11 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 65;
 }
 
 @end

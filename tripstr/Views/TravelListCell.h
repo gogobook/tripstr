@@ -11,6 +11,9 @@
 
 @interface TravelListCell : UITableViewCell
 
-
+@property (nonatomic,strong) UIImageView* cityImageView;
+@property (nonatomic,strong) UILabel* titleLabel;
+@property (nonatomic,strong) UILabel* cityNameLabel;
+@property (nonatomic,strong) UILabel* contentLabel;
 
 @end

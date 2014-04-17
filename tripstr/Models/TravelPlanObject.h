@@ -12,8 +12,8 @@
 
 @property (nonatomic,strong) NSString* cityImagePath;
 @property (nonatomic,strong) NSString* title;
-@property (nonatomic,strong) NSString* arrivalDate;
-@property (nonatomic,strong) NSString* departureDate;
+@property (nonatomic,strong) NSString* cityName;
+@property (nonatomic,strong) NSString* content;
 
 -(instancetype) initWithJSONdata: (NSDictionary*) data;
 

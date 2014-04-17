@@ -16,8 +16,8 @@
     if (self = [super init]) {
         self.cityImagePath = data[@"cityImagePath"];
         self.title = data[@"title"];
-        self.arrivalDate = data[@"arriavalDate"];
-        self.departureDate = data[@"departureDate"];
+        self.cityName = data[@"cityName"];
+        self.content = data[@"content"];
     }
     return self;
 }

@@ -52,6 +52,8 @@
     [self.loginButton autoSetDimension:ALDimensionWidth toSize:366];
     [self.loginButton autoSetDimension:ALDimensionHeight toSize:50];
     
+    [self.backgroundImageView autoCenterInSuperview];
+    
 //    [self.instructionLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
 //    [self.instructionLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.loginButton withOffset:-20];
 //    
@@ -147,7 +149,17 @@
 -(UIImageView *)backgroundImageView
 {
     if (!_backgroundImageView) {
-        _backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_background1136"]];
+        _backgroundImageView = [[UIImageView alloc] initForAutoLayout];
+        
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            if (screenSize.height > 480.0f) {
+                _backgroundImageView.image = [UIImage imageNamed:@"login_1136"];
+            } else {
+                _backgroundImageView.image = [UIImage imageNamed:@"login_960"];
+            }
+        }
     }
     return _backgroundImageView;
 }

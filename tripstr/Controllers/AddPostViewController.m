@@ -16,7 +16,7 @@ typedef enum ImagePickerType{
     ImagePickerTypeLibrary
 }ImagePickerType;
 
-@interface AddPostViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface AddPostViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextViewDelegate>
 
 @property (nonatomic,strong) IBOutlet UITextField* headline;
 @property (nonatomic,strong) IBOutlet UITextField* location;
@@ -52,7 +52,30 @@ typedef enum ImagePickerType{
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(finishButtonTapped:)];
     self.navigationController.navigationBar.translucent = NO;
     
+    [self.headline becomeFirstResponder];
+    self.content.layer.borderWidth = 1;
+    self.content.layer.borderColor = [UIColor grayColor].CGColor;
+    self.content.layer.cornerRadius = 5;
+    self.content.text = @"寫些什麼吧...";
+    self.content.textColor = [UIColor lightGrayColor];
+    self.content.delegate = self;
     
+    [self.headline setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.location setBorderStyle:UITextBorderStyleRoundedRect];
+    self.headline.layer.borderWidth = 1;
+    self.headline.layer.borderColor = [UIColor grayColor].CGColor;
+    self.headline.layer.cornerRadius = 5;
+    self.location.layer.borderWidth = 1;
+    self.location.layer.borderColor = [UIColor grayColor].CGColor;
+    self.location.layer.cornerRadius = 5;
+    self.location.placeholder = @"城市";
+    self.location.text = @"台北市";
+    self.headline.placeholder = @"標題...";
+    
+    self.addPhotoButton.layer.borderWidth = 1;
+    self.addPhotoButton.layer.borderColor = [UIColor grayColor].CGColor;
+    self.addPhotoButton.layer.cornerRadius = 5;
+    self.addPhotoButton.titleLabel.textColor = [UIColor grayColor];
 //
 //    [self setLayout];
 //    [self setConstraints];
@@ -212,4 +235,24 @@ typedef enum ImagePickerType{
 //    }
 //    return _content;
 //}
+
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
+{
+    if(textView.tag == 0) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+        textView.tag = 1;
+    }
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if([textView.text length] == 0)
+    {
+        textView.text = @"寫些什麼吧...";
+        textView.textColor = [UIColor lightGrayColor];
+        textView.tag = 0;
+    }
+}
 @end

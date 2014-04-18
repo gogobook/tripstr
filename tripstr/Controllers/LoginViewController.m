@@ -11,7 +11,12 @@
 
 @interface LoginViewController ()
 
+@property (nonatomic,strong) UIImageView* backgroundImageView;
+@property (nonatomic,strong) UIImageView* tripstrLogoImageView;
+@property (nonatomic,strong) UILabel* sloganLabel;
+@property (nonatomic,strong) UILabel* instructionLabel;
 @property (nonatomic,strong) UIButton* loginButton;
+@property (nonatomic,strong) UILabel* disclaimerLabel;
 
 @end
 
@@ -27,13 +32,36 @@
 
 - (void)setLayout
 {
+    
+    [self.view addSubview:self.backgroundImageView];
+    [self.view sendSubviewToBack:self.backgroundImageView];
+    
+    [self.view addSubview:self.tripstrLogoImageView];
+    [self.view addSubview:self.sloganLabel];
+    [self.view addSubview:self.instructionLabel];
     [self.view addSubview:self.loginButton];
+    [self.view addSubview:self.disclaimerLabel];
+
 }
 
 - (void)setupConstraints
 {
-    [self.view addConstraint: [NSLayoutConstraint constraintWithItem:self.loginButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-    [self.view addConstraint: [NSLayoutConstraint constraintWithItem:self.loginButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.loginButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+    [self.loginButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    
+    [self.instructionLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.instructionLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.loginButton withOffset:-20];
+    
+    [self.sloganLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.sloganLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.instructionLabel withOffset:-20];
+    
+    [self.tripstrLogoImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.tripstrLogoImageView autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.sloganLabel withOffset:-20];
+    [self.tripstrLogoImageView autoSetDimension:ALDimensionWidth toSize:150];
+    [self.tripstrLogoImageView autoSetDimension:ALDimensionHeight toSize:60];
+    
+    [self.disclaimerLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [self.disclaimerLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.loginButton withOffset:10];
 }
 
 #pragma mark- actions
@@ -80,13 +108,10 @@
 {
     NSLog(@"signUpAction: result %@",result);
     PFUser* user = [PFUser currentUser];
-    NSLog(@"prev_user: %@", user.username);
     user[@"fbID"] = result[@"id"];
     user.email = result[@"email"];
-    NSLog(@"useremail: %@",user.email);
     user[@"location"] = result[@"location"][@"name"];
     user[@"name"] = result[@"name"];
-    NSLog(@"user.name: %@",user[@"name"]);
     user[@"avatarURL"] = result[@"picture"][@"data"][@"url"];
     user[@"description"] = result[@"bio"];
     NSLog(@"user: %@", user);
@@ -115,5 +140,57 @@
     }
     return _loginButton;
 }
+
+-(UIImageView *)backgroundImageView
+{
+    if (!_backgroundImageView) {
+        _backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_image1136"]];
+    }
+    return _backgroundImageView;
+}
+
+-(UIImageView *)tripstrLogoImageView
+{
+    if (!_tripstrLogoImageView) {
+        _tripstrLogoImageView = [[UIImageView alloc] initForAutoLayout];
+//        _tripstrLogoImageView.image = [UIImage imageNamed:@"emma"];
+        _tripstrLogoImageView.backgroundColor = [UIColor blackColor];
+    }
+    return _tripstrLogoImageView;
+}
+
+-(UILabel *)sloganLabel
+{
+    if (!_sloganLabel) {
+        _sloganLabel = [[UILabel alloc] initForAutoLayout];
+        _sloganLabel.text = @"一個人旅行再也不孤單";
+        _sloganLabel.textColor = [UIColor whiteColor];
+        _sloganLabel.font = [UIFont systemFontOfSize:20];
+    }
+    return _sloganLabel;
+}
+
+-(UILabel *)instructionLabel
+{
+    if (!_instructionLabel) {
+        _instructionLabel = [[UILabel alloc] initForAutoLayout];
+        _instructionLabel.text = @"In order to user Tripstr, please login.";
+        _instructionLabel.textColor = [UIColor whiteColor];
+        _instructionLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:20];
+    }
+    return _instructionLabel;
+}
+
+-(UILabel *)disclaimerLabel
+{
+    if (!_disclaimerLabel) {
+        _disclaimerLabel = [[UILabel alloc] initForAutoLayout];
+        _disclaimerLabel.text = @"We will never post on your Facebook";
+        _disclaimerLabel.textColor = [UIColor whiteColor];
+        _disclaimerLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:12];
+    }
+    return _disclaimerLabel;
+}
+
 
 @end

@@ -19,7 +19,9 @@
 @property (nonatomic,strong) UIScrollView* scrollView;
 
 @property (nonatomic,strong) UILabel* headline;
+@property (nonatomic,strong) UIImageView* locationIndicatorView;
 @property (nonatomic,strong) UILabel* location;
+
 //@property (nonatomic,strong) UIImageView* photo;
 @property (nonatomic,strong) PFImageView* photo;
 @property (nonatomic,strong) UILabel* content;
@@ -95,6 +97,7 @@
     [self.view addSubview:self.scrollView];
     [self.scrollView  addSubview:self.headline];
     [self.scrollView addSubview:self.location];
+//    [self.scrollView addSubview:self.locationIndicatorView];
     [self.scrollView addSubview:self.photo];
     [self.scrollView addSubview:self.content];
     
@@ -114,6 +117,8 @@
     [self.location autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.headline];
     [self.location autoAlignAxisToSuperviewAxis:ALAxisVertical];
     
+//    [self.locationIndicatorView autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:self.location];
+//    [self.locationIndicatorView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.location];
     
     [self.photo autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.location withOffset:20];
 //    [self.photo autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:20];
@@ -174,9 +179,18 @@
         _headline.lineBreakMode = NSLineBreakByWordWrapping;
         _headline.text = self.postModel.headline;
 //        _headline.font = [UIFont boldSystemFontOfSize:36];
-        _headline.font = [UIFont fontWithName:@"Helvetica Neue Light" size:36];
+        _headline.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:18];
     }
     return _headline;
+}
+
+-(UIImageView *)locationIndicatorView
+{
+    if (!_locationIndicatorView) {
+        _locationIndicatorView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"location"]];
+        _locationIndicatorView.backgroundColor = [UIColor redColor];
+    }
+    return _locationIndicatorView;
 }
 
 -(UILabel *)location

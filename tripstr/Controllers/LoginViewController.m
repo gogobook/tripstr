@@ -35,33 +35,36 @@
     
     [self.view addSubview:self.backgroundImageView];
     [self.view sendSubviewToBack:self.backgroundImageView];
-    
-    [self.view addSubview:self.tripstrLogoImageView];
-    [self.view addSubview:self.sloganLabel];
-    [self.view addSubview:self.instructionLabel];
+//    
+//    [self.view addSubview:self.tripstrLogoImageView];
+//    [self.view addSubview:self.sloganLabel];
+//    [self.view addSubview:self.instructionLabel];
     [self.view addSubview:self.loginButton];
-    [self.view addSubview:self.disclaimerLabel];
+//    [self.view addSubview:self.disclaimerLabel];
 
 }
 
 - (void)setupConstraints
 {
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.loginButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+    [self.loginButton autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:67];
     [self.loginButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
     
-    [self.instructionLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [self.instructionLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.loginButton withOffset:-20];
+    [self.loginButton autoSetDimension:ALDimensionWidth toSize:366];
+    [self.loginButton autoSetDimension:ALDimensionHeight toSize:50];
     
-    [self.sloganLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [self.sloganLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.instructionLabel withOffset:-20];
-    
-    [self.tripstrLogoImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [self.tripstrLogoImageView autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.sloganLabel withOffset:-20];
-    [self.tripstrLogoImageView autoSetDimension:ALDimensionWidth toSize:150];
-    [self.tripstrLogoImageView autoSetDimension:ALDimensionHeight toSize:60];
-    
-    [self.disclaimerLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [self.disclaimerLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.loginButton withOffset:10];
+//    [self.instructionLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
+//    [self.instructionLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.loginButton withOffset:-20];
+//    
+//    [self.sloganLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
+//    [self.sloganLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.instructionLabel withOffset:-20];
+//    
+//    [self.tripstrLogoImageView autoAlignAxisToSuperviewAxis:ALAxisVertical];
+//    [self.tripstrLogoImageView autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:self.sloganLabel withOffset:-20];
+//    [self.tripstrLogoImageView autoSetDimension:ALDimensionWidth toSize:150];
+//    [self.tripstrLogoImageView autoSetDimension:ALDimensionHeight toSize:60];
+//    
+//    [self.disclaimerLabel autoAlignAxisToSuperviewAxis:ALAxisVertical];
+//    [self.disclaimerLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.loginButton withOffset:10];
 }
 
 #pragma mark- actions
@@ -130,11 +133,11 @@
 -(UIButton *)loginButton
 {
     if (!_loginButton) {
-        _loginButton = [[UIButton alloc] init];
-        _loginButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [_loginButton setTitle:@"Login" forState:UIControlStateNormal];
-        [_loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
-        [_loginButton setBackgroundImage:[UIImage imageNamed:@"login-button-small"] forState:UIControlStateNormal];
+        _loginButton = [[UIButton alloc] initForAutoLayout];
+//        _loginButton.translatesAutoresizingMaskIntoConstraints = NO;
+//        [_loginButton setTitle:@"Login" forState:UIControlStateNormal];
+//        [_loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+        [_loginButton setBackgroundImage:[UIImage imageNamed:@"login_with_facebook"] forState:UIControlStateNormal];
         [_loginButton setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed"] forState:UIControlStateSelected];
         [_loginButton addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -144,7 +147,7 @@
 -(UIImageView *)backgroundImageView
 {
     if (!_backgroundImageView) {
-        _backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_image1136"]];
+        _backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_background1136"]];
     }
     return _backgroundImageView;
 }

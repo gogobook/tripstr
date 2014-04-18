@@ -48,9 +48,26 @@ typedef enum ImagePickerType{
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.title = @"Add New Post";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonTapped:)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(finishButtonTapped:)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonTapped:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(finishButtonTapped:)];
     self.navigationController.navigationBar.translucent = NO;
+    
+    UIButton * saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    saveButton.bounds = CGRectMake(0, 0, 28, 11);
+    [saveButton setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
+    [saveButton addTarget:self action:@selector(finishButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
+    
+    UIButton * cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    cancelButton.bounds = CGRectMake(0, 0, 28, 28);
+    [cancelButton setImage:[UIImage imageNamed:@"cancel"] forState:UIControlStateNormal];
+    [cancelButton addTarget:self action:@selector(cancelButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
+    
+    
+    
     
     [self.headline becomeFirstResponder];
     self.content.layer.borderWidth = 1;

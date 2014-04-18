@@ -51,8 +51,15 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{
                                                                       NSForegroundColorAttributeName : [UIColor blackColor],
                                                                       NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:40]
-                                                                      
                                                                       }];
+    
+    UIButton * addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    addButton.bounds = CGRectMake(0, 0, 28, 11);
+    [addButton setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+    [addButton addTarget:self action:@selector(openEditorModal) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+    
 }
 
 - (void) setupConstraints
@@ -66,6 +73,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark- action
+
+-(void) openEditorModal
+{
+    [self performSegueWithIdentifier:@"postlistsToAddpostSegue" sender:nil];
 }
 
 #pragma mark- setter

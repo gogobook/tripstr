@@ -167,7 +167,7 @@
                     <navigationItem key="navigationItem" id="uEQ-lx-Jyj">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="Msf-IK-wdp">
                             <connections>
-                                <segue destination="dQD-MR-0Ow" kind="modal" id="ucv-vH-4NJ"/>
+                                <segue destination="dQD-MR-0Ow" kind="modal" identifier="postlistsToAddpostSegue" id="ucv-vH-4NJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

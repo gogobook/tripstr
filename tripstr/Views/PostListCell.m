@@ -70,7 +70,7 @@
         _postImageView.layer.cornerRadius = 5;
         _postImageView.clipsToBounds = YES;
         _postImageView.layer.borderColor = [UIColor blackColor].CGColor;
-        _postImageView.layer.borderWidth = 0.3;
+        _postImageView.layer.borderWidth = 1;
     }
     return _postImageView;
 }
@@ -89,6 +89,7 @@
     if (!_locationLabel) {
         _locationLabel = [[UILabel alloc] initForAutoLayout];
         _locationLabel.textAlignment = NSTextAlignmentRight;
+        _locationLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:18];
     }
     return _locationLabel;
 }

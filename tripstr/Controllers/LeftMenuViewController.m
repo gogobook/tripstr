@@ -99,10 +99,12 @@ typedef enum LeftMenuItem {
         cell.menuType = MenuTypeUser;
         cell.nameLabel.text = [PFUser currentUser][@"name"]; //@"David Chi-Tai Wang";
         cell.locationLabel.text = [PFUser currentUser][@"location"];//@"Taipei Taiwan";
+ 
         [cell.avatarImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large",[PFUser currentUser][@"fbID"]]]];
     } else {
         cell.menuType = MenuTypeIndex;
         cell.indexLabel.text = self.menuList[indexPath.row-1];
+        cell.indexLabel.font = [UIFont systemFontOfSize:18];
         //    cell.textLabel.text = self.menuList[indexPath.row-1];
     }
     return cell;

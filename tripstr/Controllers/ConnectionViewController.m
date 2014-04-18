@@ -52,7 +52,7 @@
     self.navigationController.navigationBar.barTintColor=[UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{
                                                                       NSForegroundColorAttributeName : [UIColor blackColor],
-                                                                      NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:40]
+                                                                      NSFontAttributeName: [UIFont systemFontOfSize:30]
                                                                       
                                                                       }];
 
@@ -117,6 +117,11 @@
     cell.userNameLabel.text = user.userName;
     cell.userStatusLabel.text = user.userStatus;
     cell.userMessageLabel.text = user.userMessage;
+    if ([cell.userStatusLabel.text isEqualToString:@"Friend"]) {
+        cell.userStatusLabel.backgroundColor = [UIColor greenColor];
+    } else {
+        cell.userStatusLabel.backgroundColor = [UIColor lightGrayColor];
+    }
     return cell;
 }
 

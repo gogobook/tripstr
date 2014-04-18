@@ -1,80 +1,20 @@
-[
-	{
-		"cityImagePath":"taipei.png",
-		"title":"Taipei Lovely Trip",
-		"cityName":"Taipei, Taiwan",
-		"content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
-	},
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- },
- {
- "cityImagePath":"taipei.png",
- "title":"Taipei Lovely Trip",
- "cityName":"Taipei, Taiwan",
- "content":"what a lovely city with lovely people and awesome food! Too bad it was just a short stopover, i'll be"
- }
+ [
+  {
+  "cityImagePath":"ta01.jpg",
+  "title":"短期臺北 5 日遊",
+  "cityName":"臺北",
+  "content":"旅行重點-地標、學運、美食"
+  },
+  {
+  "cityImagePath":"van01.jpg",
+  "title":"溫哥華兩個月暑期旅遊",
+  "cityName":"溫哥華",
+  "content":"特殊小店、當地活動"
+  },
+  {
+  "cityImagePath":"la01.jpg",
+  "title":"洛杉磯探望明星的家",
+  "cityName":"洛杉磯",
+  "content":"好萊塢走訪、海灘、衝浪、NBA球賽"
+  }
 ]

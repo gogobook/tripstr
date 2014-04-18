@@ -72,7 +72,7 @@
     [postQuery includeKey:@"author"];
     // Run the query
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"fetchPostListMe: %@",objects);
+
         if (!error) {
             [objects enumerateObjectsUsingBlock:^(PFObject* obj, NSUInteger idx, BOOL *stop) {
 //                PFUser* author = [obj objectForKey:@"user"];
@@ -99,7 +99,6 @@
     [postQuery whereKey:@"authorId" equalTo:authorId];
 
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"fetchPostListMe: %@",objects);
         if (!error) {
             [objects enumerateObjectsUsingBlock:^(PFObject* obj, NSUInteger idx, BOOL *stop) {
                 PostModel* post = [PostModel postWithObjData:obj andObjId: obj.objectId];

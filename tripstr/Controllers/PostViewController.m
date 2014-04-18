@@ -216,7 +216,9 @@
 {
     if (!_photo) {
         _photo = [[PFImageView alloc] initForAutoLayout];
-        _photo.backgroundColor = [UIColor grayColor];
+        _photo.backgroundColor = [UIColor lightGrayColor];
+        _photo.layer.borderColor = [UIColor blackColor].CGColor;
+        _photo.layer.borderWidth = 1;
         _photo.file = (PFFile*) self.postModel.photo;
         [_photo loadInBackground];
     }

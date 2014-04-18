@@ -55,9 +55,18 @@
 
 -(void) setupUserConstraints
 {
-    NSDictionary* views = @{@"avatar":self.avatarImageView,@"name":self.nameLabel,@"location":self.locationLabel};
-    [self addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[avatar(100)]-10-[name(30)]-2-[location(30)]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
-    [self addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-85-[avatar(100)]" options:0 metrics:nil views:views]];
+//    NSDictionary* views = @{@"avatar":self.avatarImageView,@"name":self.nameLabel,@"location":self.locationLabel};
+//    [self addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[avatar(100)]-10-[name(30)]-1-[location(30)]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+//    [self addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-85-[avatar(100)]" options:0 metrics:nil views:views]];
+    [self.avatarImageView autoSetDimension:ALDimensionWidth toSize:100];
+    [self.avatarImageView autoSetDimension:ALDimensionHeight toSize:100];
+    [self.avatarImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:25];
+    [self.avatarImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:85];
+    
+    [self.nameLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.avatarImageView withOffset:10];
+    [self.nameLabel autoAlignAxis:ALAxisVertical toSameAxisOfView:self.avatarImageView];
+    [self.locationLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.nameLabel withOffset:5];
+    [self.locationLabel autoAlignAxis:ALAxisVertical toSameAxisOfView:self.nameLabel];
 }
 
 
@@ -70,7 +79,7 @@
         _avatarImageView.translatesAutoresizingMaskIntoConstraints = NO;
         _avatarImageView.layer.masksToBounds = YES;
         _avatarImageView.layer.cornerRadius = 50;
-        _avatarImageView.layer.borderWidth = 1;
+        _avatarImageView.layer.borderWidth = 0.3;
         _avatarImageView.layer.borderColor = [UIColor blackColor].CGColor;
     }
     return _avatarImageView;
@@ -81,6 +90,7 @@
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
         _nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _nameLabel.font = [UIFont systemFontOfSize:12];
     }
     return _nameLabel;
 }
@@ -90,6 +100,7 @@
     if (!_locationLabel) {
         _locationLabel = [[UILabel alloc] init];
         _locationLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _locationLabel.font = [UIFont systemFontOfSize:12];
     }
     return _locationLabel;
 }
@@ -98,6 +109,7 @@
 {
     if (!_indexLabel) {
         _indexLabel = [[UILabel alloc] initForAutoLayout];
+        _indexLabel.font = [UIFont systemFontOfSize:18];
     }
     return _indexLabel;
 }

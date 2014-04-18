@@ -40,10 +40,10 @@
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.cityImageView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
     [self.titleLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.cityImageView withOffset:5];
-    [self.titleLabel autoSetDimension:ALDimensionWidth toSize:150];
+    [self.titleLabel autoSetDimension:ALDimensionWidth toSize:170];
     
     [self.cityNameLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.titleLabel];
-    [self.cityNameLabel autoSetDimension:ALDimensionWidth toSize:103];
+    [self.cityNameLabel autoSetDimension:ALDimensionWidth toSize:83];
     [self.cityNameLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.titleLabel];
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.cityImageView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];

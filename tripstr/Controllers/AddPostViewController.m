@@ -47,7 +47,13 @@ typedef enum ImagePickerType{
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.navigationItem.title = @"Add New Post";
+    self.navigationItem.title = @"Add a Post";
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSForegroundColorAttributeName : [UIColor blackColor],
+                                                                      NSFontAttributeName: [UIFont systemFontOfSize:30]
+                                                                      }];
+    
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonTapped:)];
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(finishButtonTapped:)];
     self.navigationController.navigationBar.translucent = NO;
@@ -86,7 +92,7 @@ typedef enum ImagePickerType{
     self.location.layer.borderColor = [UIColor grayColor].CGColor;
     self.location.layer.cornerRadius = 5;
     self.location.placeholder = @"城市";
-    self.location.text = @"台北市";
+    self.location.text = @"台北";
     self.headline.placeholder = @"標題...";
     
     self.addPhotoButton.layer.borderWidth = 1;

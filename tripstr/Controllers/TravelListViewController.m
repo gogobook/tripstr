@@ -36,7 +36,7 @@
     self.navigationController.navigationBar.barTintColor=[UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{
                                                                       NSForegroundColorAttributeName : [UIColor blackColor],
-                                                                      NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:40]
+                                                                      NSFontAttributeName: [UIFont systemFontOfSize:30]
                                                                       
                                                                       }];
         

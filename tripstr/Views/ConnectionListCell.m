@@ -43,11 +43,11 @@
     
     [self.userMessageLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.userImageView];
     [self.userMessageLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.userNameLabel];
-    [self.userMessageLabel autoSetDimension:ALDimensionWidth toSize:183];
+    [self.userMessageLabel autoSetDimension:ALDimensionWidth toSize:203];
     
     [self.userStatusLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.userMessageLabel];
     [self.userStatusLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.userMessageLabel];
-    [self.userStatusLabel autoSetDimension:ALDimensionWidth toSize:70];
+    [self.userStatusLabel autoSetDimension:ALDimensionWidth toSize:50];
 }
 
 #pragma mark- getters
@@ -86,13 +86,8 @@
     if (!_userStatusLabel) {
         _userStatusLabel = [[UILabel alloc] initForAutoLayout];
         _userStatusLabel.font = [UIFont systemFontOfSize:12];
-        _userStatusLabel.textAlignment = NSTextAlignmentRight;
+        _userStatusLabel.textAlignment = NSTextAlignmentCenter;
         _userStatusLabel.textColor = [UIColor whiteColor];
-        if ([_userStatusLabel.text isEqualToString:@"Confirmed"]) {
-            _userStatusLabel.backgroundColor = [UIColor greenColor];
-        } else {
-            _userStatusLabel.backgroundColor = [UIColor grayColor];
-        }
     }
     return _userStatusLabel;
 }

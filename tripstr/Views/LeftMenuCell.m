@@ -70,6 +70,8 @@
         _avatarImageView.translatesAutoresizingMaskIntoConstraints = NO;
         _avatarImageView.layer.masksToBounds = YES;
         _avatarImageView.layer.cornerRadius = 50;
+        _avatarImageView.layer.borderWidth = 1;
+        _avatarImageView.layer.borderColor = [UIColor blackColor].CGColor;
     }
     return _avatarImageView;
 }

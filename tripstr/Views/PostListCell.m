@@ -44,7 +44,7 @@
     [self.locationLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.titleLabel];
     [self.locationLabel autoSetDimension:ALDimensionWidth toSize:103];
     
-    [self.contentLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.titleLabel withOffset:5];
+    [self.contentLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.postImageView withOffset:5];
     [self.contentLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.titleLabel];
     [self.contentLabel autoSetDimension:ALDimensionWidth toSize:251];
     

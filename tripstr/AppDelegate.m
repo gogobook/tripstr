@@ -43,7 +43,7 @@
     [self.window makeKeyAndVisible];
     
     //BarButtonItem tint color
-    self.window.tintColor = [UIColor grayColor];
+    self.window.tintColor = [UIColor clearColor];
 
     return YES;
 }

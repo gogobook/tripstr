@@ -94,6 +94,7 @@
         _tableView = [[UITableView alloc] initForAutoLayout];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.allowsSelection = NO;
     }
     return _tableView;
 }

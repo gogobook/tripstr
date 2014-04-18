@@ -27,6 +27,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.bounds = CGRectMake(0, 0, 28, 28);
+    [button setImage:[UIImage imageNamed:@"arrow_left"] forState:UIControlStateNormal];
+    
+    [button addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +42,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) backButtonAction:(id) sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

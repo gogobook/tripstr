@@ -42,10 +42,37 @@
     
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"heart"]]];
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     //
-    /*
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow"]]];
-    */
+    
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow_left"]]];
+    
+    
+    
+//    UIImage* backButtonImage = [UIImage imageNamed:@"arrow_left"];
+    
+    
+    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.bounds = CGRectMake(0, 0, 28, 28);
+    [button setImage:[UIImage imageNamed:@"arrow_left"] forState:UIControlStateNormal];
+    
+    [button addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+//    
+//    
+//    
+//    
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:backButtonImage]];
+//    
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(backButtonAction:)];
+    
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:backButtonImage
+//                                                                             style:UIBarButtonItemStylePlain
+//                                                                            target:self
+//                                                                            action:@selector(backButtonAction:)];
+    NSLog(@"%@",self.navigationItem.leftBarButtonItem);
     //
     [self setLayout];
     
@@ -108,6 +135,10 @@
     
 }
 
+- (void) backButtonAction:(id) sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark- getters
 
 -(UIScrollView *)scrollView

@@ -159,15 +159,12 @@
 
 -(UITableView *)tableView
 {
-    NSLog(@"tableView called");
     if (!_tableView) {
 
         _tableView = [[UITableView alloc] initForAutoLayout];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.scrollEnabled = YES;
-        _tableView.backgroundColor = [UIColor grayColor];
-                NSLog(@"inside tableView if %@",_tableView);
         _tableView.bounces = NO;
     }
     return _tableView;

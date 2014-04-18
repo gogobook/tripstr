@@ -40,10 +40,10 @@
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.cityImageView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
     [self.titleLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.cityImageView withOffset:5];
-    [self.titleLabel autoSetDimension:ALDimensionWidth toSize:170];
+    [self.titleLabel autoSetDimension:ALDimensionWidth toSize:150];
     
     [self.cityNameLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.titleLabel];
-    [self.cityNameLabel autoSetDimension:ALDimensionWidth toSize:83];
+    [self.cityNameLabel autoSetDimension:ALDimensionWidth toSize:103];
     [self.cityNameLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.titleLabel];
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.cityImageView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
@@ -60,7 +60,6 @@
 {
     if (!_cityImageView) {
         _cityImageView = [[UIImageView alloc] initForAutoLayout];
-        _cityImageView.backgroundColor = [UIColor yellowColor];
         _cityImageView.layer.cornerRadius = 5;
         _cityImageView.clipsToBounds = YES;
     }
@@ -71,7 +70,6 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initForAutoLayout];
-        _titleLabel.backgroundColor = [UIColor greenColor];
     }
     return _titleLabel;
 }
@@ -80,7 +78,7 @@
 {
     if (!_cityNameLabel) {
         _cityNameLabel = [[UILabel alloc] initForAutoLayout];
-        _cityNameLabel.backgroundColor = [UIColor blueColor];
+        _cityNameLabel.textAlignment = NSTextAlignmentRight;
     }
     return _cityNameLabel;
 }
@@ -89,7 +87,6 @@
 {
     if (!_contentLabel) {
         _contentLabel = [[UILabel alloc] initForAutoLayout];
-        _contentLabel.backgroundColor = [UIColor purpleColor];
         _contentLabel.font = [UIFont systemFontOfSize:12];
         _contentLabel.numberOfLines = 2;
         _contentLabel.lineBreakMode = NSLineBreakByWordWrapping;

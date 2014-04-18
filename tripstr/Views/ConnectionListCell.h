@@ -10,4 +10,9 @@
 
 @interface ConnectionListCell : UITableViewCell
 
+@property (nonatomic,strong) UIImageView* userImageView;
+@property (nonatomic,strong) UILabel* userNameLabel;
+@property (nonatomic,strong) UILabel* userMessageLabel;
+@property (nonatomic,strong) UILabel* userStatusLabel;
+
 @end

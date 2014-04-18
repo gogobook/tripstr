@@ -68,7 +68,6 @@
     if (!_avatarImageView) {
         _avatarImageView = [[UIImageView alloc] init];
         _avatarImageView.translatesAutoresizingMaskIntoConstraints = NO;
-        _avatarImageView.backgroundColor = [UIColor yellowColor];
         _avatarImageView.layer.masksToBounds = YES;
         _avatarImageView.layer.cornerRadius = 50;
     }

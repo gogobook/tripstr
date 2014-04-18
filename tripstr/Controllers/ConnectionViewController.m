@@ -10,6 +10,8 @@
 #import "DataClient.h"
 #import "ConnectionsObject.h"
 
+#import "ConnectionListCell.h"
+
 @interface ConnectionViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) DataClient* dataClient;
@@ -92,7 +94,6 @@
         _tableView = [[UITableView alloc] initForAutoLayout];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.backgroundColor = [UIColor grayColor];
     }
     return _tableView;
 }
@@ -104,22 +105,23 @@
     return self.connectionList.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(ConnectionListCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"connectionList"];
+    ConnectionListCell* cell = (ConnectionListCell*)[tableView dequeueReusableCellWithIdentifier:@"connectionList"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"connectionList"];
+        cell = [[ConnectionListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"connectionList"];
     }
     ConnectionsObject* user = (ConnectionsObject*) self.connectionList[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:user.userImagePath];
-    cell.textLabel.text = user.userName;
-    cell.detailTextLabel.text = user.userStatus;
+    cell.userImageView.image = [UIImage imageNamed:user.userImagePath];
+    cell.userNameLabel.text = user.userName;
+    cell.userStatusLabel.text = user.userStatus;
+    cell.userMessageLabel.text = user.userMessage;
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 64;
+    return 62;
 }
 
 

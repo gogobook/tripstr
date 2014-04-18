@@ -1,14 +1,62 @@
 [
 	{
-		"userImagePath":"taipei.png",
+		"userImagePath":"emma.png",
 		"userName":"Emmy Watson",
-		"userMessage":"Hi there, handsome!",
+		"userMessage":"Emma Charlotte Duerre Watson is an English actress and model. She rose to prominence playing Hermione Granger in the Harry Potter film series; she was cast as Hermione at the age of nine, having previously acted only in school plays.",
 		"userStatus":"Confirmed"
 	},
 	{
-		"userImagePath":"<Data Goes In Here>",
-		"userName":"<Data Goes In Here>",
-		"userMessage":"<Data Goes In Here>",
-		"userStatus":"<Data Goes In Here>"
-	}
+		"userImagePath":"liam.png",
+		"userName":"liam hemsworth",
+		"userMessage":"Liam Hemsworth is an Australian actor. He played the role of Josh Taylor in the soap opera Neighbours and as Marcus on the children's television series The Elephant Princess",
+		"userStatus":"Pending"
+	},
+ {
+ "userImagePath":"emma.png",
+ "userName":"Emmy Watson",
+ "userMessage":"Emma Charlotte Duerre Watson is an English actress and model. She rose to prominence playing Hermione Granger in the Harry Potter film series; she was cast as Hermione at the age of nine, having previously acted only in school plays.",
+ "userStatus":"Confirmed"
+ },
+ {
+ "userImagePath":"liam.png",
+ "userName":"liam hemsworth",
+ "userMessage":"Liam Hemsworth is an Australian actor. He played the role of Josh Taylor in the soap opera Neighbours and as Marcus on the children's television series The Elephant Princess",
+ "userStatus":"Pending"
+ },
+ {
+ "userImagePath":"emma.png",
+ "userName":"Emmy Watson",
+ "userMessage":"Emma Charlotte Duerre Watson is an English actress and model. She rose to prominence playing Hermione Granger in the Harry Potter film series; she was cast as Hermione at the age of nine, having previously acted only in school plays.",
+ "userStatus":"Confirmed"
+ },
+ {
+ "userImagePath":"liam.png",
+ "userName":"liam hemsworth",
+ "userMessage":"Liam Hemsworth is an Australian actor. He played the role of Josh Taylor in the soap opera Neighbours and as Marcus on the children's television series The Elephant Princess",
+ "userStatus":"Pending"
+ },
+ {
+ "userImagePath":"emma.png",
+ "userName":"Emmy Watson",
+ "userMessage":"Emma Charlotte Duerre Watson is an English actress and model. She rose to prominence playing Hermione Granger in the Harry Potter film series; she was cast as Hermione at the age of nine, having previously acted only in school plays.",
+ "userStatus":"Confirmed"
+ },
+ {
+ "userImagePath":"liam.png",
+ "userName":"liam hemsworth",
+ "userMessage":"Liam Hemsworth is an Australian actor. He played the role of Josh Taylor in the soap opera Neighbours and as Marcus on the children's television series The Elephant Princess",
+ "userStatus":"Pending"
+ },
+ {
+ "userImagePath":"emma.png",
+ "userName":"Emmy Watson",
+ "userMessage":"Emma Charlotte Duerre Watson is an English actress and model. She rose to prominence playing Hermione Granger in the Harry Potter film series; she was cast as Hermione at the age of nine, having previously acted only in school plays.",
+ "userStatus":"Confirmed"
+ },
+ {
+ "userImagePath":"liam.png",
+ "userName":"liam hemsworth",
+ "userMessage":"Liam Hemsworth is an Australian actor. He played the role of Josh Taylor in the soap opera Neighbours and as Marcus on the children's television series The Elephant Princess",
+ "userStatus":"Pending"
+ }
 ]

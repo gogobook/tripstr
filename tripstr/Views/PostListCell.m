@@ -42,7 +42,7 @@
     
     [self.locationLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.postImageView];
     [self.locationLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.titleLabel];
-    [self.locationLabel autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:6];
+    [self.locationLabel autoSetDimension:ALDimensionWidth toSize:103];
     
     [self.contentLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.titleLabel withOffset:5];
     [self.contentLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.titleLabel];
@@ -69,7 +69,6 @@
         _postImageView = [[PFImageView alloc] initForAutoLayout];
         _postImageView.layer.cornerRadius = 5;
         _postImageView.clipsToBounds = YES;
-        _postImageView.backgroundColor = [UIColor grayColor];
         _postImageView.layer.borderColor = [UIColor blackColor].CGColor;
         _postImageView.layer.borderWidth = 0.3;
     }
@@ -80,7 +79,6 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initForAutoLayout];
-        _titleLabel.backgroundColor = [UIColor redColor];
         _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:18];
     }
     return _titleLabel;
@@ -91,7 +89,6 @@
     if (!_locationLabel) {
         _locationLabel = [[UILabel alloc] initForAutoLayout];
         _locationLabel.textAlignment = NSTextAlignmentRight;
-        _locationLabel.backgroundColor = [UIColor yellowColor];
     }
     return _locationLabel;
 }
@@ -103,7 +100,6 @@
         _contentLabel.font = [UIFont systemFontOfSize:12];
         _contentLabel.numberOfLines = 2;
         _contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        _contentLabel.backgroundColor = [UIColor greenColor];
     }
     return _contentLabel;
 }

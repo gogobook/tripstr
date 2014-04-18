@@ -27,6 +27,8 @@
 @property (nonatomic,strong) PostModel* post;
 @property (nonatomic,strong) NSMutableArray* postArray;
 
+@property (nonatomic,strong) MBProgressHUD* hud;
+
 @end
 
 @implementation ProfileViewController
@@ -41,6 +43,14 @@
     self.post.delegate = self;
     [self.post fetchPostListUser:self.author.authorId];
     [self addLayout];
+    
+    UIButton * heart = [UIButton buttonWithType:UIButtonTypeCustom];
+    heart.bounds = CGRectMake(0, 0, 28, 28);
+    [heart setImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
+    
+    [heart addTarget:self action:@selector(addToFavorite) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:heart];
     
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.bounds = CGRectMake(0, 0, 28, 28);
@@ -112,6 +122,16 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void) addToFavorite
+{
+    self.hud.mode = MBProgressHUDModeText;
+    self.hud.labelText = @"已加入最愛";
+    [self.hud show:YES];
+    [self.hud hide:YES afterDelay:1];
+    
+}
+
+
 #pragma mark- getters
 
 -(UIScrollView *)scrollView
@@ -141,8 +161,6 @@
     if (!_authorNameLabel) {
         _authorNameLabel = [[UILabel alloc] initForAutoLayout];
         _authorNameLabel.text = self.author.name;
-        _authorNameLabel.backgroundColor = [UIColor yellowColor];
-//        _authorNameLabel.preferredMaxLayoutWidth = 200;
     }
     return _authorNameLabel;
 }
@@ -152,7 +170,6 @@
     if (!_authorLocationLabel) {
         _authorLocationLabel = [[UILabel alloc] initForAutoLayout];
         _authorLocationLabel.text = self.author.location;
-        _authorLocationLabel.backgroundColor = [UIColor greenColor];
     }
     return _authorLocationLabel;
 }
@@ -165,7 +182,6 @@
         _authorIntroLabel.font = [UIFont systemFontOfSize:12];
         _authorIntroLabel.numberOfLines = 0;
         _authorIntroLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        _authorIntroLabel.backgroundColor = [UIColor orangeColor];
     }
     return _authorIntroLabel;
 }
@@ -181,6 +197,14 @@
         _tableView.bounces = NO;
     }
     return _tableView;
+}
+
+-(MBProgressHUD *)hud
+{
+    if (!_hud) {
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }
+    return _hud;
 }
 
 #pragma mark- tableView datasource and delegates

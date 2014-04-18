@@ -12,6 +12,7 @@
 
 #import "UserModel.h"
 #import "ProfileViewController.h"
+#import <SIAlertView.h>
 
 @interface PostViewController () <UserModelDelegate>
 
@@ -32,6 +33,8 @@
 
 @property (nonatomic,strong) UserModel* author;
 
+@property (nonatomic,strong) MBProgressHUD* hud;
+
 @end
 
 @implementation PostViewController
@@ -41,7 +44,14 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"heart"]]];
+//
+    UIButton * heart = [UIButton buttonWithType:UIButtonTypeCustom];
+    heart.bounds = CGRectMake(0, 0, 28, 28);
+    [heart setImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
+    
+    [heart addTarget:self action:@selector(addToFavorite) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:heart];
 //    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     //
     
@@ -99,13 +109,11 @@
     [self.scrollView autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:0];
     
     [self.headline autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:16];
-    [self.headline autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:36];
-//    [self.headline autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20];
-    [self.headline autoSetDimension:ALDimensionWidth toSize:264];
+    [self.headline autoAlignAxisToSuperviewAxis:ALAxisVertical];
     
     [self.location autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.headline];
-    [self.location autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.headline];
-    [self.location autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.headline];
+    [self.location autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    
     
     [self.photo autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.location withOffset:20];
 //    [self.photo autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:20];
@@ -126,6 +134,15 @@
 {
     UserModel* author = self.author;
     [self performSegueWithIdentifier:@"postToProfileSegue" sender:author];
+}
+
+-(void) addToFavorite
+{
+    self.hud.mode = MBProgressHUDModeText;
+    self.hud.labelText = @"已加入最愛";
+    [self.hud show:YES];
+    [self.hud hide:YES afterDelay:1];
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -256,6 +273,14 @@
 //        _authorlocationLabel.font = [UIFont systemFontOfSize:36];
     }
     return _authorlocationLabel;
+}
+
+-(MBProgressHUD *)hud
+{
+    if (!_hud) {
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }
+    return _hud;
 }
 
 #pragma mark- userModelDelegate

@@ -47,6 +47,14 @@
 {
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.title = @"Connections";
+    self.navigationController.navigationBar.barTintColor=[UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSForegroundColorAttributeName : [UIColor blackColor],
+                                                                      NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:40]
+                                                                      
+                                                                      }];
+
+    
     [self.view addSubview:self.tableView];
 }
 

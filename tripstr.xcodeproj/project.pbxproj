@@ -14,6 +14,7 @@
 		AA17A88118FF889900A0742B /* connection.json in Resources */ = {isa = PBXBuildFile; fileRef = AA17A88018FF889900A0742B /* connection.json */; };
 		AA17A88418FF8B4400A0742B /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA17A88318FF8B4400A0742B /* ConnectionViewController.m */; };
 		AA17A8C71900253E00A0742B /* travelplan.json in Resources */ = {isa = PBXBuildFile; fileRef = AA17A8C61900253E00A0742B /* travelplan.json */; };
+		AA17A8CA19003EEB00A0742B /* ConnectionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA17A8C919003EEB00A0742B /* ConnectionListCell.m */; };
 		AA3DFDCF18F798F80027A52D /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3DFDCE18F798F80027A52D /* UserModel.m */; };
 		AA61B83F18D6DD8500A77443 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA61B83E18D6DD8500A77443 /* Foundation.framework */; };
 		AA61B84118D6DD8500A77443 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA61B84018D6DD8500A77443 /* CoreGraphics.framework */; };
@@ -69,6 +70,8 @@
 		AA17A88218FF8B4400A0742B /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionViewController.h; path = Controllers/ConnectionViewController.h; sourceTree = "<group>"; };
 		AA17A88318FF8B4400A0742B /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionViewController.m; path = Controllers/ConnectionViewController.m; sourceTree = "<group>"; };
 		AA17A8C61900253E00A0742B /* travelplan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = travelplan.json; sourceTree = "<group>"; };
+		AA17A8C819003EEB00A0742B /* ConnectionListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionListCell.h; path = Views/ConnectionListCell.h; sourceTree = "<group>"; };
+		AA17A8C919003EEB00A0742B /* ConnectionListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionListCell.m; path = Views/ConnectionListCell.m; sourceTree = "<group>"; };
 		AA3DFDCD18F798F80027A52D /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = Models/UserModel.h; sourceTree = "<group>"; };
 		AA3DFDCE18F798F80027A52D /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = Models/UserModel.m; sourceTree = "<group>"; };
 		AA61B83B18D6DD8500A77443 /* tripstr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tripstr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +257,8 @@
 				AA6543FF18D87D0000D3EC56 /* LeftMenuTableView.m */,
 				AA65440118D87D1E00D3EC56 /* LeftMenuCell.h */,
 				AA65440218D87D1E00D3EC56 /* LeftMenuCell.m */,
+				AA17A8C819003EEB00A0742B /* ConnectionListCell.h */,
+				AA17A8C919003EEB00A0742B /* ConnectionListCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				AA61B89718D6ECCE00A77443 /* LeftMenuViewController.m in Sources */,
 				AA61B88E18D6EBA900A77443 /* PostListViewController.m in Sources */,
 				AA6543F118D7E35F00D3EC56 /* LoginViewController.m in Sources */,
+				AA17A8CA19003EEB00A0742B /* ConnectionListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,6 @@
 
 -(void)parseFromTravelPlanJSONWithComplete:(CompleteBlock)complete andFail:(FailBlock)fail
 {
-    NSLog(@"parseFromTravelPlan");
     
     NSString* filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/travelplan.json"];
     
@@ -29,7 +28,6 @@
         [jsonData enumerateObjectsUsingBlock:^(NSDictionary* data, NSUInteger idx, BOOL *stop) {
             
             TravelPlanObject* travelPlan = [[TravelPlanObject alloc] initWithJSONdata:data];
-            NSLog(@"%@",travelPlan.title);
             [returnArray addObject:travelPlan];
         }];
         //Call block (check if block exists)
@@ -48,7 +46,6 @@
 
 -(void)parseFromConnectionJSONWithComplete:(CompleteBlock)complete andFail:(FailBlock)fail
 {
-    NSLog(@"parseFromConnection");
     
     NSString* filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/connection.json"];
     

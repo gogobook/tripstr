@@ -65,6 +65,14 @@
 - (void)setupLayout
 {
     self.navigationItem.title =@"Browse";
+    self.navigationController.navigationBar.barTintColor=[UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSForegroundColorAttributeName : [UIColor blackColor],
+                                                                      NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:40]
+                                                                      
+                                                                      }];
+    
+    
 //    self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:kColorNavOrange];
     self.navigationController.navigationBar.translucent = NO;
     

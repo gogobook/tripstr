@@ -51,6 +51,8 @@ typedef enum ImagePickerType{
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonTapped:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(finishButtonTapped:)];
     self.navigationController.navigationBar.translucent = NO;
+    
+    
 //
 //    [self setLayout];
 //    [self setConstraints];

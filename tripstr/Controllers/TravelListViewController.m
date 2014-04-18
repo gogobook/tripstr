@@ -32,8 +32,25 @@
     } andFail:^(NSError *error) {
         NSLog(@"error: %@",error);
     }];
-    
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor=[UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSForegroundColorAttributeName : [UIColor blackColor],
+                                                                      NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:40]
+                                                                      
+                                                                      }];
+        
     [self.view addSubview:self.tableView];
+}
+
+-(void)updateViewConstraints
+{
+    [super updateViewConstraints];
+    
+    NSDictionary* dict = @{@"tableView":self.tableView};
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView]|" options:0 metrics:nil views:dict]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[tableView]|" options:0 metrics:nil views:dict]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +70,7 @@
 -(TravelListTableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[TravelListTableView alloc] initWithFrame:CGRectMake(0, 60, 320, 400)];
+        _tableView = [[TravelListTableView alloc] initForAutoLayout];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -106,7 +123,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 65;
+    return 62;
 }
 
 @end

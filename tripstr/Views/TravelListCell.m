@@ -31,8 +31,9 @@
 -(void)updateConstraints
 {
     [super updateConstraints];
-    
-    [self.cityImageView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+
+    [self.cityImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:6];
+    [self.cityImageView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:6];
     [self.cityImageView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:6];
     [self.cityImageView autoSetDimension:ALDimensionHeight toSize:50];
     [self.cityImageView autoSetDimension:ALDimensionWidth toSize:50];
@@ -71,7 +72,6 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initForAutoLayout];
         _titleLabel.backgroundColor = [UIColor greenColor];
-        _titleLabel.text = @"LALALAALLALALALALAL:LLLLLLLLLL";
     }
     return _titleLabel;
 }
@@ -81,7 +81,6 @@
     if (!_cityNameLabel) {
         _cityNameLabel = [[UILabel alloc] initForAutoLayout];
         _cityNameLabel.backgroundColor = [UIColor blueColor];
-        _cityNameLabel.text = @"Taipei, Taiwan";
     }
     return _cityNameLabel;
 }
@@ -94,7 +93,6 @@
         _contentLabel.font = [UIFont systemFontOfSize:12];
         _contentLabel.numberOfLines = 2;
         _contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        _contentLabel.text = @"blalsdkfl alsdkfasdf  asdfas dfa sda sdf asdfasdl;jksa;lkdjf";
     }
     return _contentLabel;
 }

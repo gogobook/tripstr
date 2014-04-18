@@ -90,6 +90,7 @@
 {
     if (!_locationLabel) {
         _locationLabel = [[UILabel alloc] initForAutoLayout];
+        _locationLabel.textAlignment = NSTextAlignmentRight;
         _locationLabel.backgroundColor = [UIColor yellowColor];
     }
     return _locationLabel;

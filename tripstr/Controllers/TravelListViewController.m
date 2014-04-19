@@ -74,6 +74,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        _tableView.allowsSelection = NO;
     }
     return _tableView;
 }

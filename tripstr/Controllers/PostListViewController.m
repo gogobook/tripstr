@@ -21,6 +21,7 @@
 @property (nonatomic,strong) PostModel* post;
 @property (nonatomic,strong) NSArray* postList;
 
+@property (nonatomic,strong) MBProgressHUD* hud;
 
 @end
 
@@ -32,6 +33,8 @@
 	// Do any additional setup after loading the view.
     [self setLayout];
     [self setupConstraints];
+    self.hud.labelText = @"資料載入中...";
+    [self.hud show:YES];
     [self.post fetchPostListMe];
 
 }
@@ -110,6 +113,14 @@
     return _post;
 }
 
+-(MBProgressHUD *)hud
+{
+    if (!_hud) {
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }
+    return _hud;
+}
+
 #pragma mark - tableView DataSource
 
 -(NSInteger)tableView:(PostListTableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -161,11 +172,13 @@
 -(void)didFetchDataAll:(NSMutableArray *)postList
 {
     self.postList = postList;
+    [self.hud hide:YES];
 }
 
 -(void)failToFetchDataAll:(NSError *)error
 {
     NSLog(@"plvc error: %@",error);
+        [self.hud hide:YES];
 }
 
 @end

@@ -35,11 +35,13 @@
     [self setupLayout];
     [self setupConstraints];
     
+    self.hud.labelText = @"資料載入中...";
+    [self.hud show:YES];
     [self.postModel fetchPostListAll];
 
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                              bundle: nil];
@@ -117,6 +119,13 @@
     return _postModel;
 }
 
+-(MBProgressHUD *)hud
+{
+    if (!_hud) {
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }
+    return _hud;
+}
 #pragma mark - tableView DataSource
 
 -(NSInteger)tableView:(PostListTableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -170,11 +179,13 @@
 -(void)didFetchDataAll:(NSMutableArray *)postList
 {
     self.postList = postList;
+    [self.hud hide:YES];
 }
 
 -(void)failToFetchDataAll:(NSError *)error
 {
     NSLog(@"%@",error);
+    [self.hud hide:YES];
 }
 
 @end

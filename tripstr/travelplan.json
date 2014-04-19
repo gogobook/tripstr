@@ -1,20 +1,38 @@
  [
   {
-  "cityImagePath":"ta01.jpg",
-  "title":"短期臺北 5 日遊",
+  "cityImagePath":"zerokei",
+  "title":"JR PASS 7天火車坐到吐之旅",
+  "cityName":"日本",
+  "content":"零系懷舊、東京鐵路博物館、曙光日出寢台\n 2010/05/07 - 2010/05/13"
+  },
+  {
+  "cityImagePath":"beplan01",
+  "title":"老北京好好玩 5 日遊",
+  "cityName":"北京",
+  "content":"零元住宿費！拜訪老友、吃護國寺小吃！\n 2013/10/10 - 2013/10/15"
+  },
+  {
+  "cityImagePath":"blplan01",
+  "title":"柏林的前世與今生",
+  "cityName":"柏林",
+  "content":"一條圍牆，造就了東西德完全不同的命運 \n 2013/03/10 - 2013/03/19"
+  },
+  {
+  "cityImagePath":"taplan01",
+  "title":"文化臺北 3 天不夠之旅",
   "cityName":"臺北",
-  "content":"旅行重點-地標、學運、美食"
+  "content":"走訪寶藏巖、臺大，探訪學運瞭解民主真諦 \n 2014/03/18 - 2014/03/21"
   },
   {
-  "cityImagePath":"van01.jpg",
-  "title":"溫哥華兩個月暑期旅遊",
+  "cityImagePath":"vaplan01",
+  "title":"溫哥華 2 個月暑期旅遊",
   "cityName":"溫哥華",
-  "content":"特殊小店、當地活動"
+  "content":"特色小店、當地活動 \n 2008/07/08 - 2008/09/02"
   },
   {
-  "cityImagePath":"la01.jpg",
+  "cityImagePath":"laplan01",
   "title":"洛杉磯探望明星的家",
   "cityName":"洛杉磯",
-  "content":"好萊塢走訪、海灘、衝浪、NBA球賽"
+  "content":"好萊塢走訪、海灘、衝浪、NBA球賽 \n 2005/10/08 - 2005/12/12"
   }
 ]

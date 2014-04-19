@@ -178,6 +178,8 @@ typedef enum ImagePickerType{
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.leftBarButtonItem.enabled = NO;
     self.headline.enabled = NO;
+//    self.hud.mode = MBProgressHUDModeText;
+    self.hud.labelText = @"上傳中";
     [self.hud show:YES];
     NSData* imageData = UIImageJPEGRepresentation(self.selectedImage, 0.8);
     PFFile* imageFile = [PFFile fileWithName:@"userImage.jpg" data:imageData];

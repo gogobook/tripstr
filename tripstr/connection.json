@@ -1,62 +1,62 @@
-[
+ [
+  {
+  "userImagePath":"kittysaurasaurus.png",
+  "userName":"Kitty Swan",
+  "userMessage":"Caffeine addict.",
+  "userStatus":"Friend"
+  },
+  {
+  "userImagePath":"CWMN.png",
+  "userName":"CWMN",
+  "userMessage":"Addicted to traveling, politics and social justice",
+  "userStatus":"Friend"
+  },
+  {
+  "userImagePath":"Jiajia321.png",
+  "userName":"Jia Jia",
+  "userMessage":"Looking for someone to share the good times with.\n  Always good to make a new friend!",
+  "userStatus":"Friend"
+  },
+  {
+  "userImagePath":"zoeliuxxx.png",
+  "userName":"zoeliuxxx",
+  "userMessage":"I spend a lot of time thinking about \n where to travel next or should i get a piece of chocolate",
+  "userStatus":"Friend"
+  },
+  {
+  "userImagePath":"Matt1984.png",
+  "userName":"Matt1984",
+  "userMessage":"I’m someone who truly has a good heart.",
+  "userStatus":"Friend"
+  },
+  {
+  "userImagePath":"greengiantinator.png",
+  "userName":"greengiantinator",
+  "userMessage":"Business teacher travelling the world !!",
+  "userStatus":"Friend"
+  },
+  {
+  "userImagePath":"Bon_Qui_Qui.png",
+  "userName":"Bon_Qui_Qui",
+  "userMessage":"I'm a little bit of a hippie without the drugs or tie-dyed clothing.",
+  "userStatus":"Friend"
+  },
+  {
+  "userImagePath":"robb_ca.png",
+  "userName":"Rob Ca",
+  "userMessage":"Some of the best things I've done in life have been the product of a spontaneous moment. Most of them involve road tripping somewhere with friends.",
+  "userStatus":"Pending"
+  },
 	{
 		"userImagePath":"emma.png",
 		"userName":"Emmy Watson",
 		"userMessage":"Emma Charlotte Duerre Watson is an English actress and model. She rose to prominence playing Hermione Granger in the Harry Potter film series; she was cast as Hermione at the age of nine, having previously acted only in school plays.",
-		"userStatus":"Friend"
+		"userStatus":"Pending"
 	},
 	{
 		"userImagePath":"liam.png",
 		"userName":"liam hemsworth",
 		"userMessage":"Liam Hemsworth is an Australian actor. He played the role of Josh Taylor in the soap opera Neighbours and as Marcus on the children's television series The Elephant Princess",
 		"userStatus":"Pending"
-	},
- {
- "userImagePath":"emma.png",
- "userName":"Emmy Watson",
- "userMessage":"Emma Charlotte Duerre Watson is an English actress and model. She rose to prominence playing Hermione Granger in the Harry Potter film series; she was cast as Hermione at the age of nine, having previously acted only in school plays.",
- "userStatus":"Friend"
- },
- {
- "userImagePath":"liam.png",
- "userName":"liam hemsworth",
- "userMessage":"Liam Hemsworth is an Australian actor. He played the role of Josh Taylor in the soap opera Neighbours and as Marcus on the children's television series The Elephant Princess",
- "userStatus":"Pending"
- },
- {
- "userImagePath":"emma.png",
- "userName":"Emmy Watson",
- "userMessage":"Emma Charlotte Duerre Watson is an English actress and model. She rose to prominence playing Hermione Granger in the Harry Potter film series; she was cast as Hermione at the age of nine, having previously acted only in school plays.",
- "userStatus":"Friend"
- },
- {
- "userImagePath":"liam.png",
- "userName":"liam hemsworth",
- "userMessage":"Liam Hemsworth is an Australian actor. He played the role of Josh Taylor in the soap opera Neighbours and as Marcus on the children's television series The Elephant Princess",
- "userStatus":"Pending"
- },
- {
- "userImagePath":"emma.png",
- "userName":"Emmy Watson",
- "userMessage":"Emma Charlotte Duerre Watson is an English actress and model. She rose to prominence playing Hermione Granger in the Harry Potter film series; she was cast as Hermione at the age of nine, having previously acted only in school plays.",
- "userStatus":"Friend"
- },
- {
- "userImagePath":"liam.png",
- "userName":"liam hemsworth",
- "userMessage":"Liam Hemsworth is an Australian actor. He played the role of Josh Taylor in the soap opera Neighbours and as Marcus on the children's television series The Elephant Princess",
- "userStatus":"Pending"
- },
- {
- "userImagePath":"emma.png",
- "userName":"Emmy Watson",
- "userMessage":"Emma Charlotte Duerre Watson is an English actress and model. She rose to prominence playing Hermione Granger in the Harry Potter film series; she was cast as Hermione at the age of nine, having previously acted only in school plays.",
- "userStatus":"Friend"
- },
- {
- "userImagePath":"liam.png",
- "userName":"liam hemsworth",
- "userMessage":"Liam Hemsworth is an Australian actor. He played the role of Josh Taylor in the soap opera Neighbours and as Marcus on the children's television series The Elephant Princess",
- "userStatus":"Pending"
- }
-]
+	}
+  ]
